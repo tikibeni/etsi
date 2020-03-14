@@ -14,3 +14,5 @@ Ennen tätä olen jo tehnyt harjoitustyönä tietokantasovelluksen, joten suurem
 [gitlog.txt](https://github.com/tikibeni/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
 [komentorivi.txt](https://github.com/tikibeni/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+
+Epäsynkronointia?
