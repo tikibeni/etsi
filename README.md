@@ -7,7 +7,7 @@ Tällä kurssilla teen pienimuotoisen harjoitustyön. Ennen tätä olen jo tehny
 
 ---------------
 ## Laskarit
----------------
+
 ### Viikko 1
 
 [gitlog.txt](https://github.com/tikibeni/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
