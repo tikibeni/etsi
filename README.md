@@ -15,4 +15,7 @@ Ennen tätä olen jo tehnyt harjoitustyönä tietokantasovelluksen, joten suurem
 
 [komentorivi.txt](https://github.com/tikibeni/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
-Epäsynkronointia?
+### Viikko 2
+
+Kattavuus:
+![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/laskarit/viikko2/kattavuus.png "Kattavuus")
