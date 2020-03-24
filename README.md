@@ -1,10 +1,14 @@
 # Ohjelmistotekniikka, kevät 2020
-Tällä kurssilla teen pienimuotoisen harjoitustyön. 
-Ennen tätä olen jo tehnyt harjoitustyönä tietokantasovelluksen, joten suurempia ongelmia perusjutuissa ei ole nähtävissä.
+Tällä kurssilla toteutan kevytmuotoisen seurantaohjelman opintojen suunnittelua varten käyttäen Javaa.
 
-**Tsoha-työni on nähtävissä täällä:** [Projekti](https://github.com/tikibeni/windsurf-ranking)
 
-*Tästä tulee hyvä kurssi!*
+--------------
+
+## Opintojen seurantatyökalu
+
+Vaatimusmäärittely: [vaatimusmaarittely.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
+
+Tuntikirjanpito: [tuntikirjanpito.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentointi/tuntikirjanpito.md)
 
 ---------------
 ## Laskarit
