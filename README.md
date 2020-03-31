@@ -32,12 +32,12 @@ Testit voi ajaa terminaalista komennolla:
 
 ```mvn test```
 
-Kattavuusraportti testeistä sovelluksen hakemistoon target: 
+Kattavuusraportti index.html testeistä sovelluksen kansioon PlanApp/target/site/jacoco/: 
 
 ```mvn jacoco:report```
 
 ### Ohjelman jar-tiedoston luominen
 
-Sovelluksen hakemistoon target voi luoda suoritettavan jar-tiedoston ohjelmasta komennolla:
+Sovelluksen hakemistoon PlanApp/target/ voi luoda suoritettavan jar-tiedoston ohjelmasta komennolla:
 
 ```mvn package```
