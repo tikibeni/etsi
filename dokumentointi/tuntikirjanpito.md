@@ -13,4 +13,4 @@
 - 4,75h
 
 31.3.: Luokkien määrittelyä ja dokumentointia.
-- 
+- 2,0h
