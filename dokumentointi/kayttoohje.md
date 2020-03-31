@@ -12,7 +12,7 @@ Tämän avulla ohjelma tallentaa luodut suunnitelmat plans.txt -tiedostoon.
 
 Ohjelman voi ajaa komennolla
 
-java -jar planapp.jar
+```java -jar planapp.jar```
 
 ## Kirjautumisnäkymä
 
