@@ -13,6 +13,8 @@ Aluksi ohjelma tulee toimimaan TKT-kurssien osalta näin, jonka myötä lisään
 
 ## Dokumentaatio
 
+Käyttöohje: [kayttoohje.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentointi/kayttoohje.md)
+
 Vaatimusmäärittely: [vaatimusmaarittely.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
 
 Tuntikirjanpito: [tuntikirjanpito.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentointi/tuntikirjanpito.md)
