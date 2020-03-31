@@ -2,16 +2,14 @@
 
 ## Sovelluksen tarkoitus
 
-Sovelluksen tarkoituksena on helpottaa käyttäjiä opintojen suunnittelussa ja seurannassa. 
-
-Sovelluksen avulla käyttäjä voi seurata ja suunnitella opintojaan. 
-
-Sovellukseen voi rekisteröityä, ja se säilyttää kunkin käyttäjän syöttämiä seurantatietoja.
+Sovelluksen tarkoituksena on helpottaa käyttäjiä opintojen suunnittelussa. 
+Sovelluksen avulla käyttäjä voi tarkistella jo suoritettujen kurssien pohjalta, mitä kursseja voi valita seuraavaksi.
+Sovellukseen voi rekisteröityä, ja se säilyttää kunkin käyttäjän syöttämiä suunnittelutietoja.
 
 ## Käyttäjät
 
 - Käyttäjäroolina toimii peruskäyttäjä. 
-  * Peruskäyttäjä voi rakentaa ja seurata opintosuunnitelmaa.
+  * Peruskäyttäjä voi rakentaa ja tarkastella kurssisuunnitelmaa.
 
 ## Näkymät
 
@@ -22,23 +20,22 @@ Sovellukseen voi rekisteröityä, ja se säilyttää kunkin käyttäjän syött�
 ## Toiminnallisuudet
 
 ### Rekisteröinti ja kirjautuminen
-- Sovellukseen voi rekisteröityä uniikilla käyttäjätunnuksella (min 3 merkkiä, max 12 merkkiä)
+
+- Sovellukseen voi rekisteröidä uuden suunnitelman uniikilla suunnitelmanimellä (min 3 merkkiä, max 12 merkkiä) ja nimellä (4-30 merkkiä)
   * Virheilmoitus mikäli validointi ei onnistu, tai käyttäjätunnus on jo olemassa.
-- Sovellukseen voi kirjautua rekisteröidyllä käyttäjällä
-  * Virheilmoitus mikäli yrittää kirjautua käyttäjällä jota ei ole
+- Sovellukseen voi kirjautua rekisteröidyllä suunnitelmanimellä
+  * Virheilmoitus mikäli yrittää kirjautua virheellisellä merkkijonolla tai suunnitelmalla jota ei ole olemassa.
 - Kirjautumisen jälkeen avautuu suunnittelusivu opinnoista
 
 ### Suunnittelusivu
-- Näyttää suoritettujen opintopisteiden lukumäärän ja keskiarvon.
-- Oikealla yläkulmassa logout-painike, josta menee takaisin kirjautumissivulle.
-- Yhteenvetosivulla on mahdollista valita itselle pääaine, 2 sivuainetta ja muut opinnot.
-- Ainekokonaisuuksien valitsemisen jälkeen "ainelaatikosta" voi merkitä kursseja suoritetuiksi ja / tai valita kursseja tuleville ajanjaksoille
-  * Merkitsemisessä: lukuvuosi, periodi, (arvosana)
-  * Tulevissa kursseissa: lukuvuosi, periodi
-- Samoin valittuja kursseja voi myös poistaa ja muokata (ajanjaksoa ja arvosanaa)
+
+- Oikealla logout-painike, josta menee takaisin kirjautumissivulle.
+- Sivulla myös delete-painike, josta voi poistaa oman suunnitelman.
+  * Tähän vahvistuskysymys, jottei suunnitelma poistu misclickin johdosta.
+- Suunnittelusivulla on mahdollista poimia jo suoritettuja kursseja, jonka myötä ohjelma tarjoaa, mitä kursseja voi suorittaa seuraavaksi.
+- Suunnittelua varten oma "laatikko" ainetta varten.
 
 ## Kehitysideoita
-- Ohjelma huomioi tulevissa kursseissa niiden esitietovaatimukset ja tarkistaa onko käyttäjä suorittanut / tuleeko käyttäjä suorittamaan edeltävät vaaditut kurssit ennen kurssia.
-- Kursseja pystyy valita vain niille periodeille, millä ne järjestetään (tämä tosin haastava toteuttaa muuttuvien järjestelyiden takia)
-- Näyttää tällä hetkellä (tässä periodissa) aktiiviset omat opinnot.
-- Sivuaineita pystyy valita dynaamisesti, jottei rajoitus ole kahdessa.
+
+- Sovellukseen voi syöttää suoritettujen kurssien arvosanat, jonka myötä laskee keskiarvot (koko, pääaine, sivuaine(et))
+- Useamman aineen esitiedot ja suunnittelumahdollisuus.

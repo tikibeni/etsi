@@ -9,4 +9,5 @@ PlanApp/target/
 .project
 .settings/
 .vscode/
-users.txt
+plans.txt
+/PlanApp/nbproject/
