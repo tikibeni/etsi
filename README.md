@@ -22,7 +22,7 @@ Tuntikirjanpito: [tuntikirjanpito.md](https://github.com/tikibeni/ot-harjoitusty
 
 ### Ohjelman ajaminen
 
-Ohjelman voi vaihtoehtoisesti ajaa konsolista hakemiston /PlanApp sisällä komennolla:
+Ohjelman voi vaihtoehtoisesti ajaa konsolista hakemiston PlanApp/ sisällä komennolla:
 
 ```mvn compile exec:java -Dexec.mainClass=planapp.Main```
 
