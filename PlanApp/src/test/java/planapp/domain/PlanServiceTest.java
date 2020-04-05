@@ -31,7 +31,7 @@ public class PlanServiceTest {
         planService.login("Test");
         assertEquals(planService.thisPlansAuthor(), "Test Test");
     }
-    
+
     @Test
     public void createsPlanCorrectly1(){
         assertFalse(planService.createPlan("Test", "Test Test"));
@@ -41,13 +41,16 @@ public class PlanServiceTest {
     public void createsPlanCorrectly2() {
         assertTrue(planService.createPlan("Testt", "Tester Test"));
     }
-    
+
     @Test
     public void deletesPlanCorrectly1(){
         planService.createPlan("Delete", "test");
         planService.login("Delete");
         assertTrue(planService.deletePlan());
     }
-    
-    
+
+    @Test
+    public void cantDeleteNonExisting(){
+        assertFalse(planService.deletePlan());
+    }
 }

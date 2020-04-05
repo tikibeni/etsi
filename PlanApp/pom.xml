@@ -39,7 +39,8 @@
                 <version>0.8.3</version>
                 <configuration>
                     <excludes>
-                        <exclude>planapp/ui/**/*</exclude>
+                        <exclude>planapp/ui/*</exclude>
+                        <exclude>planapp/*Main.class</exclude>
                     </excludes>
                 </configuration>
                 <executions>

@@ -6,13 +6,13 @@ public class PlanService {
     private PlanDao planDao;
     private Plan currentPlan;
     
-    public PlanService(PlanDao planDao){
+    public PlanService(PlanDao planDao) {
         this.planDao = planDao;
     }
     
-    public boolean login(String planName){
+    public boolean login(String planName) {
         Plan plan = planDao.findPlan(planName);
-        if(plan == null){
+        if (plan == null) {
             return false;
         }
         
@@ -21,29 +21,30 @@ public class PlanService {
         return true;
     }
     
-    public String thisPlansAuthor(){
+    public String thisPlansAuthor() {
         return currentPlan.getUserName();
     }
     
-    public boolean createPlan(String planName, String userName){
-        if(planDao.findPlan(planName) != null){
+    public boolean createPlan(String planName, String userName) {
+        if (planDao.findPlan(planName) != null) {
             return false;
         }
         
         Plan plan = new Plan(planName, userName);
         try {
             planDao.create(plan);
-        } catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
+        
         
         return true;
     }
     
-    public boolean deletePlan(){
-        try{
+    public boolean deletePlan() {
+        try {
             planDao.deletePlan(currentPlan.getPlanName());
-        } catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
         return true;

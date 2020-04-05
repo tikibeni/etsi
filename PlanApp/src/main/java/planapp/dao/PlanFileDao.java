@@ -20,7 +20,7 @@ public class PlanFileDao implements PlanDao {
         
         try {
             Scanner reader = new Scanner(new File(file));
-            while(reader.hasNextLine()) {
+            while (reader.hasNextLine()) {
                 String[] parts = reader.nextLine().split(";");
                 Plan p = new Plan(parts[0], parts[1]);
                 plans.add(p);
@@ -67,8 +67,8 @@ public class PlanFileDao implements PlanDao {
 
     @Override
     public boolean deletePlan(String planName) throws Exception {
-        for(Plan p : plans){
-            if(p.getPlanName().equals(planName)){
+        for (Plan p : plans) {
+            if (p.getPlanName().equals(planName)) {
                 plans.remove(p);
                 save();
                 return true;

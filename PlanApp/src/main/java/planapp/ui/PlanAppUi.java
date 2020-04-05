@@ -24,7 +24,6 @@ import planapp.domain.PlanService;
 public class PlanAppUi extends Application {
     
     private PlanService planService;
-    
     private Scene plan;
     private Scene login;
     private Scene register;
@@ -54,7 +53,7 @@ public class PlanAppUi extends Application {
         
         logButton.setOnAction((ActionEvent push) -> {
             logNotification.setText("");
-            if(logUsername.getText().isEmpty()){
+            if (logUsername.getText().isEmpty()) {
                 logNotification.setFill(Color.FIREBRICK);
                 logNotification.setText("Please enter name of a plan");   
             } else if (logUsername.getText().length() < 3 || logUsername.getText().length() > 12) {
@@ -73,15 +72,16 @@ public class PlanAppUi extends Application {
         registerLink.setOnAction((ActionEvent push) -> {
             stg.setScene(register);
             logNotification.setText("");
+            logUsername.setText("");
         });
         
-        logGrid.add(logTitle, 0,1);
-        logGrid.add(logUserLabel, 0,2);
-        logGrid.add(logUsername, 1,2);
-        logGrid.add(logButton, 1,3);
-        logGrid.add(registerInfo, 0,4);
-        logGrid.add(registerLink, 1,4);
-        logGrid.add(logNotification, 0,5);
+        logGrid.add(logTitle, 0, 1);
+        logGrid.add(logUserLabel, 0, 2);
+        logGrid.add(logUsername, 1, 2);
+        logGrid.add(logButton, 1, 3);
+        logGrid.add(registerInfo, 0, 4);
+        logGrid.add(registerLink, 1, 4);
+        logGrid.add(logNotification, 0, 5);
         
         login = new Scene(logGrid, 500, 200);
         
@@ -110,33 +110,39 @@ public class PlanAppUi extends Application {
         regButton.setOnAction((ActionEvent push) -> {
             regNotification.setText("");
             regNotification1.setText("");
-            boolean er1 = false;
-            boolean er2 = false;
+            boolean typeValidatorError = false;
+            boolean existingError = false;
             
-            if(regUsername.getText().length() < 3 || regUsername.getText().length() > 12){
+            if (regUsername.getText().length() < 3 || regUsername.getText().length() > 12) {
                 regNotification.setFill(Color.FIREBRICK);
                 regNotification.setText("Plan name length must be between 3-12");
-                er1 = true;
-            } 
-            if(!planService.createPlan(regUsername.getText(), regName.getText())){
-                regNotification.setFill(Color.FIREBRICK);
-                regNotification.setText("Plan already exists");
-                er1 = true;
+                typeValidatorError = true;
             }
-            if(regName.getText().length() < 4 || regName.getText().length() > 30){
+                
+            if (regName.getText().length() < 4 || regName.getText().length() > 30) {
                 regNotification1.setFill(Color.FIREBRICK);
                 regNotification1.setText("Name length must be between 4-30");
-                er2 = true;
+                typeValidatorError = true;
             }
             
-            
-            if(!er2 && !er1){
+            if (!typeValidatorError) {
+                if (!planService.createPlan(regUsername.getText(), regName.getText())) {
+                    regNotification.setFill(Color.FIREBRICK);
+                    regNotification.setText("Plan already exists");
+                    existingError = true;
+                }
+            }
+                
+            if (!typeValidatorError && !existingError) {
                 try {
                     planService.createPlan(regUsername.getText(), regName.getText());
                     logNotification.setFill(Color.GREEN);
                     regNotification.setText("");
                     logNotification.setText("Registeration successful!");
                     stg.setScene(login);
+                    regUsername.setText("");
+                    regName.setText("");
+                    
                 } catch (Exception ex) {
                     regNotification.setFill(Color.FIREBRICK);
                     regNotification.setText("Something went wrong");
@@ -145,13 +151,14 @@ public class PlanAppUi extends Application {
             }
             
             // Would be great if it'd validate planname while writing (with 1 second delay && when over 2chars)
-            
         });
         
         regReturn.setOnAction((ActionEvent push) -> {
             stg.setScene(login);
             regUsername.setText("");
             regName.setText("");
+            regNotification.setText("");
+            regNotification1.setText("");
         });
                 
         regGrid.add(regTitle, 0, 1);
@@ -172,14 +179,14 @@ public class PlanAppUi extends Application {
         Hyperlink logout = new Hyperlink("Logout");
         Hyperlink delete = new Hyperlink("Delete plan");
         
-        logout.setOnAction((ActionEvent push ) -> {
+        logout.setOnAction((ActionEvent push) -> {
             logUsername.setText("");
             stg.setScene(login);
         });
         
         delete.setOnAction((ActionEvent push) -> {
             logUsername.setText("");
-            if(planService.deletePlan()){
+            if (planService.deletePlan()) {
                 logNotification.setFill(Color.GREEN);
                 logNotification.setText("Plan deleted successfully");
             } else {
@@ -220,7 +227,7 @@ public class PlanAppUi extends Application {
     }
     
     @Override
-    public void stop(){
+    public void stop() {
         // Save possible changes to database when closing.
         System.out.println("Closing...");
     }
