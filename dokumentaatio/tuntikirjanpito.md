@@ -21,8 +21,9 @@
 5.4.: Bugfix & testauksen konfigurointia
 - 1,0h
 
-7.4.: Uudistukset:
+7.4.: Uudistukset: 6,25h
 - Kurssien liittäminen suunnitelmaan
 - Kurssitoiminnallisuuksien pohjustus
 - Sovellusarkkitehtuurin kuvauksen luonti
 - Dokumentaation uudistus
+- Testien rakentamista
