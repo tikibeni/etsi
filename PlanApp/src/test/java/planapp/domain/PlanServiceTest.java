@@ -18,23 +18,23 @@ public class PlanServiceTest {
     }
     
     @Test
-    public void loginWorksCorrectly1(){
+    public void loginWorksCorrectly1() {
         assertTrue(planService.login("Test"));
     }
     
     @Test
-    public void loginWorksCorrectly2(){
+    public void loginWorksCorrectly2() {
         assertFalse(planService.login("Test2"));
     }
     
     @Test
-    public void correctPlanAuthor(){
+    public void correctPlanAuthor() {
         planService.login("Test");
         assertEquals(planService.thisPlansAuthor(), "Test Test");
     }
 
     @Test
-    public void createsPlanCorrectly1(){
+    public void createsPlanCorrectly1() {
         assertFalse(planService.createPlan("Test", "Test Test"));
     }
     
@@ -44,14 +44,23 @@ public class PlanServiceTest {
     }
 
     @Test
-    public void deletesPlanCorrectly1(){
+    public void deletesPlanCorrectly1() {
         planService.createPlan("Delete", "test");
         planService.login("Delete");
         assertTrue(planService.deletePlan());
     }
 
     @Test
-    public void cantDeleteNonExisting(){
+    public void cantDeleteNonExisting() {
+        assertFalse(planService.deletePlan());
+    }
+    
+    @Test
+    public void logoutWorksCorrectlyThroughDeletion() {
+        planService.createPlan("Testing", "Logout");
+        planService.login("Testing");
+        planService.logout();
+        
         assertFalse(planService.deletePlan());
     }
 }
