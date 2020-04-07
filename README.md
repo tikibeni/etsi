@@ -19,6 +19,8 @@ Käyttöohje: [kayttoohje.md](https://github.com/tikibeni/ot-harjoitustyo/blob/m
 
 Vaatimusmäärittely: [vaatimusmaarittely.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
 
+Sovellusarkkitehtuuri: [arkkitehtuuri.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
 Tuntikirjanpito: [tuntikirjanpito.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentointi/tuntikirjanpito.md)
 
 

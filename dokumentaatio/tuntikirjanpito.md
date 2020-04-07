@@ -18,5 +18,11 @@
 3.4.: Checkstylen käyttöönotto
 - 0,5h
 
-5.3.: Bugfix & testauksen konfigurointia
+5.4.: Bugfix & testauksen konfigurointia
 - 1,0h
+
+7.4.: Uudistukset:
+- Kurssien liittäminen suunnitelmaan
+- Kurssitoiminnallisuuksien pohjustus
+- Sovellusarkkitehtuurin kuvauksen luonti
+- Dokumentaation uudistus

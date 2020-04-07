@@ -8,4 +8,4 @@ Domainin PlanService käyttää PlanDao:ta ja CourseDao:ta.
 
 ## Luokka- ja pakkauskaavio
 
-![alt text](https://github.com/tikibeni/ot-harjoitustyo/tree/master/dokumentaatio/kuvat/kaaviot.png "Kaavio")
+![alt text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kaaviot.png "Kaavio")
