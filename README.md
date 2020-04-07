@@ -15,13 +15,13 @@ Aluksi ohjelma tulee toimimaan TKT-kurssien osalta näin, jonka myötä lisään
 
 Luethan käyttöohjeen ennen ohjelman käsittelyä:
 
-Käyttöohje: [kayttoohje.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentointi/kayttoohje.md)
+Käyttöohje: [kayttoohje.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
-Vaatimusmäärittely: [vaatimusmaarittely.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
+Vaatimusmäärittely: [vaatimusmaarittely.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 Sovellusarkkitehtuuri: [arkkitehtuuri.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
-Tuntikirjanpito: [tuntikirjanpito.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentointi/tuntikirjanpito.md)
+Tuntikirjanpito: [tuntikirjanpito.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 
 ### Komentorivitoiminnot
