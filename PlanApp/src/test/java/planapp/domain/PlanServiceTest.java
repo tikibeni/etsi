@@ -1,4 +1,3 @@
-
 package planapp.domain;
 
 import org.junit.Before;
@@ -8,12 +7,14 @@ import static org.junit.Assert.*;
 public class PlanServiceTest {
     
     TestPlanDao planDao;
+    TestCourseDao courseDao;
     PlanService planService;
     
     @Before
     public void setUp() {
         planDao = new TestPlanDao();
-        planService = new PlanService(planDao);
+        courseDao = new TestCourseDao();
+        planService = new PlanService(planDao, courseDao);
     }
     
     @Test

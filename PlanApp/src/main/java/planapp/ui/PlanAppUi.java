@@ -1,6 +1,7 @@
 package planapp.ui;
 
 import java.io.FileInputStream;
+import java.util.List;
 import java.util.Properties;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -11,13 +12,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import planapp.dao.CourseFileDao;
 import planapp.dao.PlanFileDao;
+import planapp.domain.Course;
 import planapp.domain.PlanService;
 
 
@@ -43,7 +49,7 @@ public class PlanAppUi extends Application {
         Text welcome = new Text();
         
         logTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        logTitle.setText("PlanApp v. 0.1");    
+        logTitle.setText("PlanApp v. 0.3");    
         
         TextField logUsername = new TextField();
         Label logUserLabel = new Label("Plan name:");
@@ -150,7 +156,7 @@ public class PlanAppUi extends Application {
                 }
             }
             
-            // Would be great if it'd validate planname while writing (with 1 second delay && when over 2chars)
+            // Would be great if it'd validate planname while writing (with 1 second delay && when over 2chars) EventListener
         });
         
         regReturn.setOnAction((ActionEvent push) -> {
@@ -175,12 +181,17 @@ public class PlanAppUi extends Application {
         
         
         // Plan components:
-        GridPane planGrid = new GridPane();        
+        BorderPane planGrid = new BorderPane();      
+        BorderPane topBar = new BorderPane();
+        AnchorPane actions = new AnchorPane();
+        HBox links = new HBox();
         Hyperlink logout = new Hyperlink("Logout");
-        Hyperlink delete = new Hyperlink("Delete plan");
-        
+        Hyperlink delete = new Hyperlink("Delete plan");     
+        List<Course> courses = planService.allCourses();
+                
         logout.setOnAction((ActionEvent push) -> {
             logUsername.setText("");
+            planService.logout();
             stg.setScene(login);
         });
         
@@ -197,14 +208,15 @@ public class PlanAppUi extends Application {
             stg.setScene(login);
         });
         
-        planGrid.add(welcome, 0, 0);
-        planGrid.add(logout, 1, 0);
-        planGrid.add(delete, 2, 0);
+        links.getChildren().addAll(logout, delete);
+        actions.getChildren().addAll(links);
+        AnchorPane.setRightAnchor(links, 10.0);
         
-        planGrid.setAlignment(Pos.CENTER);
-        planGrid.setHgap(10);
-        planGrid.setVgap(10);
-        planGrid.setPadding(new Insets(25, 25, 25, 25));
+        topBar.setPadding(new Insets(10, 10, 10, 10));
+        topBar.setRight(actions);
+        topBar.setLeft(welcome);
+        
+        planGrid.setTop(topBar);
         
         plan = new Scene(planGrid, 600, 600);
         
@@ -221,17 +233,18 @@ public class PlanAppUi extends Application {
         prop.load(new FileInputStream("config.file"));
         
         String planFile = prop.getProperty("plans");
-        PlanFileDao planDao = new PlanFileDao(planFile);
+        String courseFile = prop.getProperty("courses");
         
-        this.planService = new PlanService(planDao);
+        CourseFileDao courseDao = new CourseFileDao(courseFile);
+        PlanFileDao planDao = new PlanFileDao(planFile, courseDao);
+        
+        this.planService = new PlanService(planDao, courseDao);
     }
     
     @Override
     public void stop() {
-        // Save possible changes to database when closing.
         System.out.println("Closing...");
     }
-    
     
     public static void main(String[] args) {
         launch(args);

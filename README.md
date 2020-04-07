@@ -13,6 +13,8 @@ Aluksi ohjelma tulee toimimaan TKT-kurssien osalta näin, jonka myötä lisään
 
 ## Dokumentaatio
 
+Luethan käyttöohjeen ennen ohjelman käsittelyä:
+
 Käyttöohje: [kayttoohje.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentointi/kayttoohje.md)
 
 Vaatimusmäärittely: [vaatimusmaarittely.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
@@ -43,3 +45,11 @@ Kattavuusraportti index.html testeistä sovelluksen kansioon PlanApp/target/site
 Sovelluksen hakemistoon PlanApp/target/ voi luoda suoritettavan jar-tiedoston ohjelmasta komennolla:
 
 ```mvn package```
+
+### Checkstyle
+
+Checkstyle-asetukset on määritelty checkstyle.xml -tiedostossa. Se ei tarkista PlanAppUi-luokkaa.
+
+```mvn jxr:jxr checkstyle:checkstyle```
+
+Raportti tästä ilmestyy tiedostoon planapp/target/site/checkstyle.html

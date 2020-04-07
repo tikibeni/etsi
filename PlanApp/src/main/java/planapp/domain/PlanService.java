@@ -1,13 +1,18 @@
 package planapp.domain;
 
+import java.util.List;
+import planapp.dao.CourseDao;
 import planapp.dao.PlanDao;
 
 public class PlanService {
     private PlanDao planDao;
+    // CURRENTLY UNUSED:
+    private CourseDao courseDao;
     private Plan currentPlan;
     
-    public PlanService(PlanDao planDao) {
+    public PlanService(PlanDao planDao, CourseDao courseDao) {
         this.planDao = planDao;
+        this.courseDao = courseDao;
     }
     
     public boolean login(String planName) {
@@ -19,6 +24,10 @@ public class PlanService {
         this.currentPlan = plan;
         
         return true;
+    }
+    
+    public void logout() {
+        currentPlan = null;
     }
     
     public String thisPlansAuthor() {
@@ -49,4 +58,36 @@ public class PlanService {
         }
         return true;
     }
+    
+    public boolean addCourse(Course course) {
+        if (currentPlan.addCourse(course)) {
+            try {
+                planDao.updatePlans();
+            } catch (Exception e) {
+                return false;
+            }
+            
+            return true;
+        }
+        
+        return false;
+    }
+    
+    public List<Course> allCourses(){
+        return courseDao.getCourses();
+    }
+    
+    public boolean removeCourse(Course course) {
+        if (currentPlan.removeCourse(course)) {
+            try {
+                planDao.updatePlans();                
+            } catch (Exception e) {
+                return false;
+            }
+            
+            return true;
+        }
+        
+        return false;
+    }    
 }

@@ -1,12 +1,17 @@
 package planapp.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Plan {
     private String planName;
     private String userName;
+    private List<Course> courses;
     
     public Plan(String planName, String userName) {
         this.planName = planName;
         this.userName = userName;
+        this.courses = new ArrayList<>();
     }
     
     public String getPlanName() {
@@ -15,6 +20,22 @@ public class Plan {
     
     public String getUserName() {
         return this.userName;
+    }
+    
+    public List<Course> getCourses() {
+        return this.courses;
+    }
+    
+    public boolean addCourse(Course course) {
+        return this.courses.add(course);
+    }
+    
+    public boolean removeCourse(Course course) {
+        if (!courses.contains(course)) {
+            return false;
+        }
+        
+        return courses.remove(course);
     }
     
     @Override

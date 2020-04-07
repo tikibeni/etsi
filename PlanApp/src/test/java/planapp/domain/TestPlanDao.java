@@ -43,5 +43,10 @@ public class TestPlanDao implements PlanDao {
         
         return false;
     }
+
+    @Override
+    public void updatePlans() throws Exception {
+        
+    }
     
 }

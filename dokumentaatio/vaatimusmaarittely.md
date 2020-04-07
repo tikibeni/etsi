@@ -21,21 +21,24 @@ Sovellukseen voi rekisteröityä, ja se säilyttää kunkin käyttäjän syött�
 
 ### Rekisteröinti ja kirjautuminen
 
-- Sovellukseen voi rekisteröidä uuden suunnitelman uniikilla suunnitelmanimellä (min 3 merkkiä, max 12 merkkiä) ja nimellä (4-30 merkkiä)
+- TEHTY: Sovellukseen voi rekisteröidä uuden suunnitelman uniikilla suunnitelmanimellä (min 3 merkkiä, max 12 merkkiä) ja nimellä (4-30 merkkiä)
   * Virheilmoitus mikäli validointi ei onnistu, tai käyttäjätunnus on jo olemassa.
-- Sovellukseen voi kirjautua rekisteröidyllä suunnitelmanimellä
+- TEHTY: Sovellukseen voi kirjautua rekisteröidyllä suunnitelmanimellä
   * Virheilmoitus mikäli yrittää kirjautua virheellisellä merkkijonolla tai suunnitelmalla jota ei ole olemassa.
-- Kirjautumisen jälkeen avautuu suunnittelusivu opinnoista
+  * Ei luo muutoksia plans.txt-tiedostoon virhetilanteissa.
+- TEHTY: Kirjautumisen jälkeen avautuu suunnittelusivu opinnoista
 
 ### Suunnittelusivu
 
-- Oikealla logout-painike, josta menee takaisin kirjautumissivulle.
-- Sivulla myös delete-painike, josta voi poistaa oman suunnitelman.
+- TEHTY: Oikealla logout-painike, josta menee takaisin kirjautumissivulle.
+- TEHTY: Sivulla myös delete-painike, josta voi poistaa oman suunnitelman.
   * Tähän vahvistuskysymys, jottei suunnitelma poistu misclickin johdosta.
 - Suunnittelusivulla on mahdollista poimia jo suoritettuja kursseja, jonka myötä ohjelma tarjoaa, mitä kursseja voi suorittaa seuraavaksi.
+  * Toistaiseksi ei pysty valita kursseja, joiden esitietoihin pohjautuvia kursseja ei ole vielä valittu.
 - Suunnittelua varten oma "laatikko" ainetta varten.
 
 ## Kehitysideoita
 
 - Sovellukseen voi syöttää suoritettujen kurssien arvosanat, jonka myötä laskee keskiarvot (koko, pääaine, sivuaine(et))
-- Useamman aineen esitiedot ja suunnittelumahdollisuus.
+- Useamman aineen (esim. matematiikka) esitiedot ja suunnittelumahdollisuus.
+- Sovellukseen voi itse syöttää kurssikokonaisuuksia, kursseja ja niihin liittyviä tietoja.

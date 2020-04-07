@@ -1,0 +1,54 @@
+TKT10001;Johdatus tietojenkäsittelytieteeseen
+PREREQUISITES:
+
+TKT10002;Ohjelmoinnin perusteet
+PREREQUISITES:
+
+TKT10003;Ohjelmoinnin jatkokurssi
+PREREQUISITES:
+TKT10002;Ohjelmoinnin perusteet
+
+TKT10004;Tietokantojen perusteet
+PREREQUISITES:
+TKT10002;Ohjelmoinnin perusteet
+TKT10002;Ohjelmoinnin jatkokurssi
+
+TKT10005;Tietokoneen toiminta
+PREREQUISITES:
+TKT10002;Ohjelmoinnin perusteet
+
+TKT20001;Tietorakenteet ja algoritmit
+PREREQUISITES:
+TKT10002;Ohjelmoinnin perusteet
+TKT10003;Ohjelmoinnin jatkokurssi
+
+TKT20002;Ohjelmistotekniikka
+PREREQUISITES:
+TKT10002;Ohjelmoinnin perusteet
+TKT10003;Ohjelmoinnin jatkokurssi
+TKT10004;Tietokantojen perusteet
+
+TKT20003;Käyttöjärjestelmät
+PREREQUISITES:
+TKT10005;Tietokoneen toiminta
+
+TKT20004;Tietoliikenteen perusteet
+PREREQUISITES:
+TKT10005;Tietokoneen toiminta
+TKT20001;Tietorakenteet ja algoritmit
+
+TKT20005;Laskennan mallit
+PREREQUISITES:
+TKT20001;Tietorakenteet ja algoritmit
+
+TKT20006;Ohjelmistotuotanto
+PREREQUISITES:
+TKT20002;Ohjelmistotekniikka
+
+TKT20007;Ohjelmistotuotantoprojekti
+PREREQUISITES:
+TKT20006;Ohjelmistotuotanto
+
+TKT20008;Kandidaatin tutkielma
+PREREQUISITES:
+TKT20007;Ohjelmistotuotantoprojekti

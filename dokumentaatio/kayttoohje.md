@@ -5,8 +5,14 @@
 Tällä hetkellä ohjelma tarvitsee toimiakseen sovelluksen juurihakemistoon tiedoston "config.file", jonka sisältö on seuraava:
 
 plans = plans.txt
+- Sisältää suunnitelmat ja niihin liittyvät kurssit
 
-Tämän avulla ohjelma tallentaa luodut suunnitelmat plans.txt -tiedostoon.
+courses = courses.txt
+- Sisältää ennaltamääritetyt kurssit (kurssikoodi, kurssinimi) ja niiden esitietovaatimukset
+- HUOM! Ethän muokkaa courses.txt:n sisältöä. Toistaiseksi tiedoston sisältö on ennaltamääritetty eikä ohjelma muokkaa sisältöä mitenkään.
+    * Tähän liittyen tulee validointi, joka luo tiedoston kokonaan ohjelmakoodin mukaisesti.
+
+Tämän avulla ohjelma käyttää em. tekstitiedostoja tietokantana.
 
 ## Käynnistäminen
 
