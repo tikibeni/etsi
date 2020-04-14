@@ -31,7 +31,7 @@
 13.4.: UI:n ja toiminnallisuuksien rakentaminen päänäkymälle
 - 5,5h
 
-14.4.: Perustoiminnallisuuden viimeistely ja testien rakentamista
-- x,yh
+14.4.: Perustoiminnallisuuden viimeistely, testien rakentamista, dokumentaation päivitys
+- 4,75h
 
-Yhteensä: 26h + 14.4. alkaen tunnit
+Yhteensä: 30,75h
