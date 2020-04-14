@@ -18,24 +18,27 @@ public class CourseFileDao implements CourseDao {
         this.courseFile = courseFile;
         try {
             boolean prerequisitesLine = false;
-            Scanner scanner = new Scanner(new File(courseFile));
+            Scanner reader = new Scanner(new File(courseFile));
             Course latest = new Course("Placeholder", "Placeholder");
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
+            
+            
+            while (reader.hasNextLine()) {
+                String line = reader.nextLine();
                 
                 // Handling the course's prerequisites part
                 if (line.equals("PREREQUISITES:")) {
                     prerequisitesLine = true;
                 }
-                if (prerequisitesLine && scanner.hasNextLine()) {
-                    line = scanner.nextLine();
+                if (prerequisitesLine && reader.hasNextLine()) {
+                    line = reader.nextLine();
                     while (!line.equals("")) {
                         String[] preInfo = line.split(";");
                         String preCode = preInfo[0];
                         String preName = preInfo[1];
                         latest.addPrerequisite(new Course(preCode, preName));
-                        if (scanner.hasNext()) {
-                            line = scanner.nextLine();   
+                        
+                        if (reader.hasNext()) {
+                            line = reader.nextLine();   
                         } else {
                             break;
                         }
@@ -45,13 +48,16 @@ public class CourseFileDao implements CourseDao {
                 }
                 
                 // Creating existing courses
-                String[] info = line.split(";");
-                String code = info[0];
-                String name = info[1];
-                Course course = new Course(code, name);
-                latest = course;
-                courses.add(course);                
+                if (!line.equals("")) {
+                    String[] info = line.split(";");
+                    String code = info[0];
+                    String name = info[1];
+                    Course course = new Course(code, name);
+                    latest = course;
+                    courses.add(course); 
+                }
             }
+            
         } catch (FileNotFoundException e) {
             FileWriter writer = new FileWriter(new File(courseFile));
             writer.close();
@@ -83,5 +89,16 @@ public class CourseFileDao implements CourseDao {
     @Override
     public List<Course> getCourses() {
         return courses;
+    }
+
+    @Override
+    public Course findCourse(String courseCode) {
+        for (Course c : courses) {
+            if (c.getCourseCode().equals(courseCode)) {
+                return c;
+            }
+        }
+        
+        return null;
     }
 }

@@ -32,10 +32,16 @@ public class PlanFileDao implements PlanDao {
                 if (courseLines && reader.hasNextLine()) {
                     line = reader.nextLine();
                     while (!line.equals("")) {
-                        String[] courseLine = reader.nextLine().split(";");
+                        String[] courseLine = line.split(";");
                         String courseCode = courseLine[0];
                         String courseName = courseLine[1];
                         latest.addCourse(new Course(courseCode, courseName));
+                        
+                        if (reader.hasNext()) {
+                            line = reader.nextLine();
+                        } else {
+                            break;
+                        }
                     }
                     
                     courseLines = false;
@@ -43,11 +49,13 @@ public class PlanFileDao implements PlanDao {
                 }
                 
                 // Plan core's handling
-                String[] parts = line.split(";");
-                Plan p = new Plan(parts[0], parts[1]);
-                latest = p;
+                if (!line.equals("")) {
+                    String[] parts = line.split(";");
+                    Plan p = new Plan(parts[0], parts[1]);
+                    latest = p;
+                    plans.add(p);
+                }
                 
-                plans.add(p);
             }
             
         } catch (FileNotFoundException e) {

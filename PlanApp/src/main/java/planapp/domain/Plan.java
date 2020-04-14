@@ -31,11 +31,11 @@ public class Plan {
     }
     
     public boolean removeCourse(Course course) {
-        if (!courses.contains(course)) {
+        if (!this.courses.contains(course)) {
             return false;
         }
         
-        return courses.remove(course);
+        return this.courses.remove(course);
     }
     
     @Override

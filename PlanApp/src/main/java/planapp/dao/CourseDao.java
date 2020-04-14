@@ -5,4 +5,5 @@ import planapp.domain.Course;
 
 public interface CourseDao {
     List<Course> getCourses();
+    Course findCourse(String courseCode);
 }

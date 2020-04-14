@@ -1,6 +1,7 @@
 package planapp.ui;
 
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import javafx.application.Application;
@@ -9,6 +10,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -16,6 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -26,7 +29,6 @@ import planapp.dao.PlanFileDao;
 import planapp.domain.Course;
 import planapp.domain.PlanService;
 
-
 public class PlanAppUi extends Application {
     
     private PlanService planService;
@@ -36,6 +38,11 @@ public class PlanAppUi extends Application {
     
     @Override
     public void start(Stage stg) throws Exception {   
+        // Some of plan components:
+        VBox courseCollection = new VBox();
+        Text planInstruction = new Text("");
+        planInstruction.setFont(Font.font("Tahoma", FontWeight.BOLD, 20));
+        
         // Login components:
         GridPane logGrid = new GridPane();
         
@@ -49,13 +56,13 @@ public class PlanAppUi extends Application {
         Text welcome = new Text();
         
         logTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        logTitle.setText("PlanApp v. 0.3");    
+        logTitle.setText("PlanApp v. 0.9");    
         
+        Hyperlink registerLink = new Hyperlink("Register");
         TextField logUsername = new TextField();
         Label logUserLabel = new Label("Plan name:");
         Label registerInfo = new Label("Don't have a plan yet?");
         Button logButton = new Button("Login");
-        Hyperlink registerLink = new Hyperlink("Register");
         
         logButton.setOnAction((ActionEvent push) -> {
             logNotification.setText("");
@@ -70,7 +77,14 @@ public class PlanAppUi extends Application {
                 logNotification.setText("Plan doesn't exist");
                 
             } else {
-                welcome.setText("Welcome " + planService.thisPlansAuthor() + "!");
+                planService.login(logUsername.getText());
+                welcome.setText("User: " + planService.thisPlansAuthor());
+                planInstruction.setText("Welcome! System contains a total of " + planService.allCourses().size() + " courses");     
+                
+                if (courseCollection.getChildren().isEmpty()) {
+                    courseCollection.getChildren().add(planInstruction);
+                }
+                
                 stg.setScene(plan);
             }
         });
@@ -180,16 +194,134 @@ public class PlanAppUi extends Application {
         register = new Scene(regGrid, 500, 200);
         
         
-        // Plan components:
+        // Plan components:        
+        List<Course> courses = planService.allCourses();
+        List<Course> nextCourses = new ArrayList<>();
+        
+        Text planNotification = new Text("");
+        
         BorderPane planGrid = new BorderPane();      
         BorderPane topBar = new BorderPane();
+        
         AnchorPane actions = new AnchorPane();
         HBox links = new HBox();
         Hyperlink logout = new Hyperlink("Logout");
         Hyperlink delete = new Hyperlink("Delete plan");     
-        List<Course> courses = planService.allCourses();
+        
+        VBox suggestedCourses = new VBox();
+        Text suggestTitle = new Text("");
+        
+        suggestTitle.setFont(Font.font("Arial", FontWeight.BOLD, 12));
+        suggestedCourses.getChildren().add(suggestTitle);
+                
+        
+        VBox studySubjects = new VBox();
+        Text menuTitle = new Text("Menu");
+        Button saveButton = new Button("Save");
+                
+        planInstruction.setFont(Font.font("Arial", FontWeight.BOLD, 12));        
+        courseCollection.getChildren().add(planInstruction);
+        courseCollection.setAlignment(Pos.TOP_LEFT);
+        courseCollection.setPadding(new Insets(10, 10, 10, 10));
+        List<CheckBox> boxes = new ArrayList<>();
+ 
+        saveButton.setOnAction((ActionEvent push) -> {
+            suggestedCourses.getChildren().clear();
+            suggestedCourses.getChildren().add(suggestTitle);
+            suggestTitle.setText("Suggested courses: ");
+            nextCourses.clear();
+            
+            for (CheckBox c : boxes) {
+                String pcs[] = c.getText().split(": ");
+                Course cc = planService.findCourse(pcs[0]);
+                
+                if (c.isSelected() && !planService.selectedCourses().contains(cc)) {
+                    planService.addCourse(cc);
+                } else if (c.isSelected() && planService.selectedCourses().contains(cc)) {
+                    continue;
+                } else {
+                    if (planService.selectedCourses().contains(cc)) {
+                        planService.removeCourse(cc);
+                    }
+                }
+            }            
+            
+            for (Course c : courses) {
+                List<Course> prerequisites = c.getPrerequisites();
+                List<Course> completed = planService.selectedCourses();
+                                
+                if (!completed.contains(c)) {
+                    boolean allClear = true;
+                    for (Course p : prerequisites) {
+                        if (!completed.contains(p)) {
+                            allClear = false;
+                            break;
+                        }
+                    }
+                    
+                    if (allClear) {
+                        nextCourses.add(c);
+                    }
+                }
+            }            
+            
+            if (!nextCourses.isEmpty()) {
+                nextCourses.forEach((cc) -> {
+                    suggestedCourses.getChildren().add(new Text(cc.toString()));
+                });
+            }
+        });
+        
+        menuTitle.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        VBox.setMargin(menuTitle, new Insets(0, 0, 0, 2));
+        studySubjects.getChildren().add(menuTitle);
+        
+        Hyperlink csLink = new Hyperlink("TKT-Courses");
+        Hyperlink prerequisitesTKT = new Hyperlink("TKT-Prerequisites");
+        
+        VBox.setMargin(csLink, new Insets(0, 0, 0, 8));
+        VBox.setMargin(prerequisitesTKT, new Insets(0, 0, 0, 8));
+        
+        csLink.setOnAction((ActionEvent push) -> {
+            courseCollection.getChildren().clear();
+            if (planService.selectedCourses().isEmpty()) {
+                planInstruction.setText("Start by selecting all completed courses");
+            } else {
+                planInstruction.setText("Your plan: ");
+            }
+            
+            courseCollection.getChildren().add(planInstruction);
+            
+            for (Course c : courses) {
+                CheckBox box = new CheckBox(c.toString());
+            
+                if (planService.selectedCourses().contains(c)) {
+                    box.setSelected(true);
+                }
+                
+                boxes.add(box);
+                courseCollection.getChildren().add(box);
+            }
+            
+            courseCollection.getChildren().add(saveButton);
+            courseCollection.getChildren().add(planNotification);
+        });
+        
+        prerequisitesTKT.setOnAction((ActionEvent push) -> {
+            courseCollection.getChildren().clear();
+            suggestedCourses.getChildren().clear();
+            planInstruction.setText("Prerequisites graph for TKT-courses: (Coming soon)");
+            courseCollection.getChildren().add(planInstruction);
+        });
+        
+        studySubjects.getChildren().add(csLink);
+        studySubjects.getChildren().add(prerequisitesTKT);
+        studySubjects.setStyle("-fx-background-color: #CACACA");
                 
         logout.setOnAction((ActionEvent push) -> {
+            suggestedCourses.getChildren().clear();
+            courseCollection.getChildren().clear();
+            
             logUsername.setText("");
             planService.logout();
             stg.setScene(login);
@@ -212,13 +344,19 @@ public class PlanAppUi extends Application {
         actions.getChildren().addAll(links);
         AnchorPane.setRightAnchor(links, 10.0);
         
-        topBar.setPadding(new Insets(10, 10, 10, 10));
-        topBar.setRight(actions);
-        topBar.setLeft(welcome);
+        suggestedCourses.setPadding(new Insets(10, 10, 10, 10));
         
+        topBar.setPadding(new Insets(10, 10, 10, 10));
+        topBar.setStyle("-fx-background-color: #CACACA");
+        topBar.setRight(actions);
+        topBar.setLeft(welcome);        
+        
+        planGrid.setLeft(studySubjects);
+        planGrid.setRight(suggestedCourses);
+        planGrid.setCenter(courseCollection);
         planGrid.setTop(topBar);
         
-        plan = new Scene(planGrid, 600, 600);
+        plan = new Scene(planGrid, 1000, 800);
         
         
         // Run application:

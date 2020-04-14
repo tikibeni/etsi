@@ -27,3 +27,11 @@
 - Sovellusarkkitehtuurin kuvauksen luonti
 - Dokumentaation uudistus
 - Testien rakentamista
+
+13.4.: UI:n ja toiminnallisuuksien rakentaminen päänäkymälle
+- 5,5h
+
+14.4.: Perustoiminnallisuuden viimeistely ja testien rakentamista
+- 
+
+Yhteensä: 20,5h + 13.4. alkaen tunnit

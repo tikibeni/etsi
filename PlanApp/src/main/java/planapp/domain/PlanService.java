@@ -6,7 +6,6 @@ import planapp.dao.PlanDao;
 
 public class PlanService {
     private PlanDao planDao;
-    // CURRENTLY UNUSED:
     private CourseDao courseDao;
     private Plan currentPlan;
     
@@ -32,6 +31,10 @@ public class PlanService {
     
     public String thisPlansAuthor() {
         return currentPlan.getUserName();
+    }
+    
+    public List<Course> selectedCourses() {
+        return currentPlan.getCourses();
     }
     
     public boolean createPlan(String planName, String userName) {
@@ -73,8 +76,12 @@ public class PlanService {
         return false;
     }
     
-    public List<Course> allCourses(){
+    public List<Course> allCourses() {
         return courseDao.getCourses();
+    }
+    
+    public Course findCourse(String code) {
+        return courseDao.findCourse(code);
     }
     
     public boolean removeCourse(Course course) {
