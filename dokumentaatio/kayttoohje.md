@@ -22,7 +22,7 @@ Ohjelman voi ajaa .jar-tiedoston kautta komentorivikomennolla:
 
 ## Kirjautumisnäkymä
 
-Kirjautumisnäkymässä voit kirjautua sisään suunnitelmanäkymään luodun suunnitelman nimellä ja painamalla login.
+Kirjautumisnäkymässä voit kirjautua sisään suunnitelmanäkymään luodun suunnitelman nimellä ja painamalla `Login`.
 
 Mikäli suunnitelmaa ei ole vielä luotu, sen voi luoda `Register` -painikkeesta
 
@@ -34,7 +34,7 @@ Rekisteröintinäkymässä voit luoda uuden suunnitelman syöttämällä suunnit
 - Suunnitelman nimen tulee olla 3-12 merkkiä pitkä
 - Nimen tulee olla 4-30 merkkiä pitkä
 
-Rekisteröinnin voi sinetöidä painamalla Register, jonka myötä ohjelma palaa kirjautumissivulle.
+Rekisteröinnin voi sinetöidä painamalla `Register`, jonka myötä ohjelma palaa kirjautumissivulle.
 
 ## Suunnitelmanäkymä
 

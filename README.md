@@ -28,7 +28,7 @@ Tuntikirjanpito: [tuntikirjanpito.md](https://github.com/tikibeni/ot-harjoitusty
 
 ### Ohjelman ajaminen
 
-Ohjelman voi vaihtoehtoisesti ajaa konsolista hakemiston /PlanApp sisällä komennolla:
+Ohjelman voi vaihtoehtoisesti ajaa konsolista hakemiston PlanApp/ sisällä komennolla:
 
 ```mvn compile exec:java -Dexec.mainClass=planapp.Main```
 
@@ -38,15 +38,19 @@ Testit voi ajaa terminaalista komennolla:
 
 ```mvn test```
 
-Kattavuusraportti `index.html` testeistä sovelluksen kansioon PlanApp/target/site/jacoco/: 
+Kattavuusraportti `index.html` testeistä sovelluksen kansioon PlanApp/target/site/jacoco/ komennolla: 
 
 ```mvn jacoco:report```
 
 ### Ohjelman jar-tiedoston luominen
 
-Sovelluksen hakemistoon PlanApp/target/ voi luoda suoritettavan .jar-tiedoston ohjelmasta komennolla:
+Sovelluksen hakemistoon PlanApp/target/ voi luoda suoritettavan .jar-tiedoston (sen jossa ei lue original) ohjelmasta komennolla:
 
 ```mvn package```
+
+Mikäli luot .jar-tiedoston, huomaathan suorittaa tiedoston täsmällisellä komennolla:
+
+```java -jar tiedostonnimi.jar```
 
 ### Checkstyle
 
