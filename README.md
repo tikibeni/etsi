@@ -28,7 +28,7 @@ Tuntikirjanpito: [tuntikirjanpito.md](https://github.com/tikibeni/ot-harjoitusty
 
 ### Ohjelman ajaminen
 
-Ohjelman voi vaihtoehtoisesti ajaa konsolista hakemiston PlanApp/ sisällä komennolla:
+Ohjelman voi vaihtoehtoisesti ajaa konsolista hakemiston /PlanApp sisällä komennolla:
 
 ```mvn compile exec:java -Dexec.mainClass=planapp.Main```
 
@@ -38,20 +38,20 @@ Testit voi ajaa terminaalista komennolla:
 
 ```mvn test```
 
-Kattavuusraportti index.html testeistä sovelluksen kansioon PlanApp/target/site/jacoco/: 
+Kattavuusraportti `index.html` testeistä sovelluksen kansioon PlanApp/target/site/jacoco/: 
 
 ```mvn jacoco:report```
 
 ### Ohjelman jar-tiedoston luominen
 
-Sovelluksen hakemistoon PlanApp/target/ voi luoda suoritettavan jar-tiedoston ohjelmasta komennolla:
+Sovelluksen hakemistoon PlanApp/target/ voi luoda suoritettavan .jar-tiedoston ohjelmasta komennolla:
 
 ```mvn package```
 
 ### Checkstyle
 
-Checkstyle-asetukset on määritelty checkstyle.xml -tiedostossa. Se ei tarkista PlanAppUi-luokkaa.
+Checkstyle-asetukset on määritelty `checkstyle.xml` -tiedostossa. Se ei tarkista PlanAppUi-luokkaa, kuten `skipped_files.xml` -tiedostossa on määritetty.
 
 ```mvn jxr:jxr checkstyle:checkstyle```
 
-Raportti tästä ilmestyy tiedostoon planapp/target/site/checkstyle.html
+Checkstyleraportti `checkstyle.html` sovelluksen kansioon PlanApp/target/site/

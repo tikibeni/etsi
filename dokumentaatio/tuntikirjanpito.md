@@ -34,4 +34,4 @@
 14.4.: Perustoiminnallisuuden viimeistely ja testien rakentamista
 - 
 
-Yhteensä: 20,5h + 13.4. alkaen tunnit
+Yhteensä: 26h + 14.4. alkaen tunnit

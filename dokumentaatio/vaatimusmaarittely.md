@@ -39,7 +39,7 @@ Sovellukseen voi rekisteröityä, ja se säilyttää kunkin käyttäjän syött�
 - TEHTY: Sivulle oma yläpalkki, jonka Menussa logout, delete plan, edit jne.
 - TODO:
   * Vahvistusilmoitus suunnitelman poiston yhteydessä
-  * Esitietokaaviosivu
+  * Esitietokaaviosivun sisältö
 
 ## Kehitysideoita
 
@@ -47,8 +47,8 @@ Sovellukseen voi rekisteröityä, ja se säilyttää kunkin käyttäjän syött�
   * Courses.txt:n sisältö suoraan ohjelmakoodista
   * Rekisteröinnin nopeampi validointi EventListenerillä
   * Suunnitelman poiston validointi vahvistusilmoituksella
-  * Sovelluslogiikan erottelu käyttöliittymästä mahdollisimman hyvin
-  * Käyttöliittymän hiominen
+  * Sovelluslogiikan erottelu käyttöliittymästä mahdollisimman hyvin + hiominen
+  * Graafisen käyttöliittymän hiominen
   
 - Sovellukseen voi syöttää suoritettujen kurssien arvosanat, jonka myötä laskee keskiarvot (koko, pääaine, sivuaine(et))
 - Useamman aineen (esim. matematiikka) esitiedot ja suunnittelumahdollisuus.
