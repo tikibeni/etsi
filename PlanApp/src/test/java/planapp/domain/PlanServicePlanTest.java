@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class PlanServiceTest {
+public class PlanServicePlanTest {
     
     TestPlanDao planDao;
     TestCourseDao courseDao;
@@ -63,4 +63,6 @@ public class PlanServiceTest {
         
         assertFalse(planService.deletePlan());
     }
+    
+    
 }

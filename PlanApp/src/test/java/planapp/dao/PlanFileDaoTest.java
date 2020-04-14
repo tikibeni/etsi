@@ -1,0 +1,99 @@
+
+package planapp.dao;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.Rule;
+import org.junit.rules.TemporaryFolder;
+import planapp.domain.Plan;
+import planapp.domain.TestCourseDao;
+
+public class PlanFileDaoTest {
+    
+    @Rule
+    public TemporaryFolder tempFolder = new TemporaryFolder();
+    
+    File planFile;
+    PlanDao planDao;
+    CourseDao courseDao;
+    
+    @Before
+    public void setUp() throws Exception {
+        planFile = tempFolder.newFile("test_plans.txt");
+        courseDao = new TestCourseDao();
+        
+        try (FileWriter file = new FileWriter(planFile.getAbsolutePath())) {
+            file.write("freshplan;Fresher\nCOURSES:\nTKT10001;JTKT\nTKT10002;Ohpe\n\n");
+        }
+        
+        planDao = new PlanFileDao(planFile.getAbsolutePath(), courseDao);
+    }
+    
+    @Test
+    public void registeringWorks() throws Exception {
+        Plan newPlan = new Plan("testplan", "tester");
+        
+        assertEquals(newPlan, planDao.create(newPlan));
+    }
+    
+    @Test
+    public void planFindingWorksThroughCreation() throws Exception {
+        Plan newPlan = new Plan("testplan", "tester");
+        
+        assertEquals(newPlan, planDao.create(newPlan));        
+        assertEquals(newPlan, planDao.findPlan("testplan"));
+    }
+    
+    @Test
+    public void planFindingReturnsNullIfNonExisting() throws Exception {
+        assertEquals(null, planDao.findPlan("testplan"));
+    }
+    
+    @Test
+    public void planDeletionIsPossible() throws Exception {
+        Plan newPlan = new Plan("testplan", "tester");
+        
+        assertEquals(newPlan, planDao.create(newPlan));
+        
+        assertTrue(planDao.deletePlan("testplan"));
+    }
+    
+    @Test
+    public void planDeletionNotPossibleIfNonExisting() throws Exception {
+        assertFalse(planDao.deletePlan("testplan"));
+    }
+    
+    @Test
+    public void findsPlansCoursesCorrectly() throws Exception {
+        assertFalse(planDao.findPlan("freshplan").getCourses().isEmpty());
+        
+        
+        Plan newPlan = new Plan("Test", "Tester Test");
+        newPlan.addCourse(courseDao.getCourses().get(0));
+        
+        planDao.create(newPlan);
+        assertEquals(1, planDao.findPlan("Test").getCourses().size());
+    }
+    
+    @Test
+    public void accessToExistingPlans() throws Exception {
+        assertEquals(1, planDao.allPlans().size());
+        
+        Plan newPlan = new Plan("Test", "Tester Test");
+        planDao.create(newPlan);
+        
+        assertEquals(2, planDao.allPlans().size());
+    }
+    
+    @After
+    public void tearDown() {
+        planFile.delete();
+    }   
+}

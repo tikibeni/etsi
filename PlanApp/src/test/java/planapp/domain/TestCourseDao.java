@@ -16,4 +16,15 @@ public class TestCourseDao implements CourseDao {
     public List<Course> getCourses() {
         return courses;
     }    
+
+    @Override
+    public Course findCourse(String courseCode) {
+        for (Course c : courses) {
+            if (c.getCourseCode().equals(courseCode)) {
+                return c;
+            }
+        }
+        
+        return null;
+    }
 }
