@@ -51,10 +51,6 @@ Sovelluksen hakemistoon _PlanApp/target/_ voi luoda suoritettavan .jar-tiedoston
 
 ```mvn package```
 
-Mikäli luot .jar-tiedoston, huomaathan suorittaa tiedoston täsmällisellä komennolla:
-
-```java -jar tiedostonnimi.jar```
-
 ### Checkstyle
 
 Checkstyle-asetukset on määritelty _checkstyle.xml_ -tiedostossa. Se ei tarkista PlanAppUi-luokkaa, kuten `skipped_files.xml`-tiedostossa on määritetty.
