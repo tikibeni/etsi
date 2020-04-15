@@ -1,0 +1,24 @@
+title Registeration
+
+User->UI: click registerLink
+UI->UI: stg.setScene(register)
+User->UI: click regButton
+UI->planService: createPlan("fresh","fresher") 
+planService->planDao: findPlan("fresh")
+planDao-->planService: null
+planService->Plan: new Plan("fresh","fresher")
+planService->PlanDao: create(fresh)
+planService-->UI: true
+UI->UI: stg.setScene(login)
+UI-->User:
+
+
+title Login
+
+User->UI: click logButton
+UI->PlanService: login("fresh","fresher")
+PlanService->planDao: findPlan("fresh")
+planDao-->PlanService: plan
+PlanService-->UI: true
+UI->UI: stg.setScene(plan)
+UI-->User:
