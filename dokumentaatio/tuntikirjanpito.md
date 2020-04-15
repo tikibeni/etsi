@@ -34,8 +34,7 @@
 14.4.: Perustoiminnallisuuden viimeistely, testien rakentamista, dokumentaation päivitys
 - 4,75h
 
-15.4.: Konfigurointia ja testien uudelleenrakentamista: 3,25h
-- Ohjelma on nyt riippuvainen vain config-file:stä ja generoi txt-tiedostot siihen pohjautuen
-- Ohjelma lukee UTF-8
+15.4.: Ydinkonfigurointia, testien muokkaamista, dokumentaatiota, ensimmäinen release
+- 4,5h
 
-Yhteensä: 30,75h + 15.4.
+Yhteensä: 35,25h

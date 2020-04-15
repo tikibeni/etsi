@@ -23,6 +23,9 @@ Sovellusarkkitehtuuri: [arkkitehtuuri.md](https://github.com/tikibeni/ot-harjoit
 
 Tuntikirjanpito: [tuntikirjanpito.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
+## Releaset
+
+Ensimmäinen: [v1.0](https://github.com/tikibeni/ot-harjoitustyo/releases/tag/v1.0)
 
 ## Komentorivitoiminnot
 
