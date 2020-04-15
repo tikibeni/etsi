@@ -1,6 +1,9 @@
 package planapp.ui;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -368,12 +371,14 @@ public class PlanAppUi extends Application {
     @Override
     public void init() throws Exception {
         Properties prop = new Properties();
-        prop.load(new FileInputStream("config.file"));
+        FileInputStream input = new FileInputStream(new File("config.file"));
+        prop.load(new InputStreamReader(input, Charset.forName("UTF-8")));
         
         String planFile = prop.getProperty("plans");
         String courseFile = prop.getProperty("courses");
+        String courseInfo = prop.getProperty("coursesInfo");
         
-        CourseFileDao courseDao = new CourseFileDao(courseFile);
+        CourseFileDao courseDao = new CourseFileDao(courseFile, courseInfo);
         PlanFileDao planDao = new PlanFileDao(planFile, courseDao);
         
         this.planService = new PlanService(planDao, courseDao);

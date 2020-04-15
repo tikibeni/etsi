@@ -2,8 +2,6 @@
 package planapp.dao;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
 import org.junit.After;
 import org.junit.Before;
@@ -25,11 +23,7 @@ public class CourseFileDaoTest {
     public void setUp() throws Exception {
         courseFile = tempFolder.newFile("test_courses.txt");
         
-        try (FileWriter file = new FileWriter(courseFile.getAbsolutePath())) {
-            file.write("TKT20001;Tira\nPREREQUISITES:\nTKT10002;Ohpe\nTKT10003;Ohja\n");
-        }
-        
-        courseDao = new CourseFileDao(courseFile.getAbsolutePath());
+        courseDao = new CourseFileDao(courseFile.getAbsolutePath(),"TKT20001;Tira\nPREREQUISITES:\nTKT10002;Ohpe\nTKT10003;Ohja\n");
     }
     
     @Test

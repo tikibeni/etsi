@@ -63,6 +63,4 @@ public class PlanServicePlanTest {
         
         assertFalse(planService.deletePlan());
     }
-    
-    
 }

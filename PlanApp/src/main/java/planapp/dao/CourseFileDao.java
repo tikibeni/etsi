@@ -13,59 +13,68 @@ public class CourseFileDao implements CourseDao {
     private String courseFile;
 
     // Reading info from given coursefile for application usage
-    public CourseFileDao(String courseFile) throws Exception {
+    public CourseFileDao(String courseFile, String courseInfo) throws Exception {
         this.courses = new ArrayList<>();
         this.courseFile = courseFile;
         try {
-            boolean prerequisitesLine = false;
-            Scanner reader = new Scanner(new File(courseFile));
-            Course latest = new Course("Placeholder", "Placeholder");
-            
-            
-            while (reader.hasNextLine()) {
-                String line = reader.nextLine();
-                
-                // Handling the course's prerequisites part
-                if (line.equals("PREREQUISITES:")) {
-                    prerequisitesLine = true;
-                }
-                if (prerequisitesLine && reader.hasNextLine()) {
-                    line = reader.nextLine();
-                    while (!line.equals("")) {
-                        String[] preInfo = line.split(";");
-                        String preCode = preInfo[0];
-                        String preName = preInfo[1];
-                        latest.addPrerequisite(new Course(preCode, preName));
-                        
-                        if (reader.hasNext()) {
-                            line = reader.nextLine();   
-                        } else {
-                            break;
-                        }
-                    }
-                    prerequisitesLine = false;
-                    continue;
-                }
-                
-                // Creating existing courses
-                if (!line.equals("")) {
-                    String[] info = line.split(";");
-                    String code = info[0];
-                    String name = info[1];
-                    Course course = new Course(code, name);
-                    latest = course;
-                    courses.add(course); 
-                }
-            }
-            
+            initialize(courseFile);
         } catch (FileNotFoundException e) {
-            FileWriter writer = new FileWriter(new File(courseFile));
-            writer.close();
+            String[] lines = courseInfo.split("\n");
+            try (FileWriter writer = new FileWriter(new File(courseFile))) {
+                for (String line : lines) {
+                    writer.write(line + "\n");
+                }
+                writer.close();
+                initialize(courseFile);
+            } catch (Exception ee) {
+                System.out.println("Error while initializing file: courses.txt");
+            }
         }
     }
     
-    // Writing new courses to file
-    // CURRENTLY UNUSED AS NO CHANGES TO FILE ARE MADE DURING A SESSION!
+    private void initialize(String courseFile) throws FileNotFoundException {
+        boolean prerequisitesLine = false;
+        Scanner reader = new Scanner(new File(courseFile));
+        Course latest = new Course("Placeholder", "Placeholder");
+            
+        while (reader.hasNextLine()) {
+            String line = reader.nextLine();
+                
+            // Handling the course's prerequisites part
+            if (line.equals("PREREQUISITES:")) {
+               prerequisitesLine = true;
+            }
+            if (prerequisitesLine && reader.hasNextLine()) {
+                line = reader.nextLine();
+                while (!line.equals("")) {
+                    String[] preInfo = line.split(";");
+                    String preCode = preInfo[0];
+                    String preName = preInfo[1];
+                    latest.addPrerequisite(new Course(preCode, preName));
+                        
+                    if (reader.hasNext()) {
+                        line = reader.nextLine();   
+                    } else {
+                        break;
+                    }
+                }
+                prerequisitesLine = false;
+                continue;
+            }
+                
+            // Creating existing courses
+            if (!line.equals("")) {
+                String[] info = line.split(";");
+                String code = info[0];
+                String name = info[1];
+                Course course = new Course(code, name);
+                latest = course;
+                courses.add(course); 
+            }
+        }
+    }
+    
+    // Creating new courses to file (CURRENTLY UNUSED)
     private void save() throws Exception {
         try (FileWriter writer = new FileWriter(new File(courseFile))) {
             for (Course c : courses) {

@@ -16,7 +16,7 @@ Tämän avulla ohjelma käyttää em. tekstitiedostoja tietokantana.
 
 ## Käynnistäminen
 
-Ohjelman voi ajaa .jar-tiedoston kautta komentorivikomennolla:
+Ohjelman voi ajaa ladattavan .jar-tiedoston kautta komentorivikomennolla:
 
 ```java -jar planapp.jar```
 

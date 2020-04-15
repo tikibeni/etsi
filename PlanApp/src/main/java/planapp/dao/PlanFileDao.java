@@ -57,7 +57,7 @@ public class PlanFileDao implements PlanDao {
                 }
                 
             }
-            
+        // Initialize the plan.txt if non-existing    
         } catch (FileNotFoundException e) {
             FileWriter writer = new FileWriter(new File(file));
             writer.close();
