@@ -44,11 +44,7 @@ Sovellukseen voi rekisteröityä, ja se säilyttää kunkin käyttäjän syött�
 ## Kehitysideoita
 
 - TODO:
-  * Courses.txt:n sisältö suoraan ohjelmakoodista
-  * Rekisteröinnin nopeampi validointi EventListenerillä
-  * Suunnitelman poiston validointi vahvistusilmoituksella
-  * Sovelluslogiikan erottelu käyttöliittymästä mahdollisimman hyvin + hiominen
-  * Graafisen käyttöliittymän hiominen
+  * Sovelluslogiikan erottelun + graafisen käyttöliittymän hiominen
   
 - Sovellukseen voi syöttää suoritettujen kurssien arvosanat, jonka myötä laskee keskiarvot (koko, pääaine, sivuaine(et))
 - Useamman aineen (esim. matematiikka) esitiedot ja suunnittelumahdollisuus.

@@ -24,11 +24,11 @@ Sovellusarkkitehtuuri: [arkkitehtuuri.md](https://github.com/tikibeni/ot-harjoit
 Tuntikirjanpito: [tuntikirjanpito.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 
-### Komentorivitoiminnot
+## Komentorivitoiminnot
 
 ### Ohjelman ajaminen
 
-Ohjelman voi vaihtoehtoisesti ajaa konsolista hakemiston PlanApp/ sisällä komennolla:
+Ohjelman voi vaihtoehtoisesti ajaa konsolista hakemiston _PlanApp/_ sisällä komennolla:
 
 ```mvn compile exec:java -Dexec.mainClass=planapp.Main```
 
@@ -38,13 +38,13 @@ Testit voi ajaa terminaalista komennolla:
 
 ```mvn test```
 
-Kattavuusraportti `index.html` testeistä sovelluksen kansioon PlanApp/target/site/jacoco/ komennolla: 
+Kattavuusraportti _index.html_ testeistä sovelluksen kansioon _PlanApp/target/site/jacoco/_ komennolla: 
 
 ```mvn jacoco:report```
 
 ### Ohjelman jar-tiedoston luominen
 
-Sovelluksen hakemistoon PlanApp/target/ voi luoda suoritettavan .jar-tiedoston (sen jossa ei lue original) ohjelmasta komennolla:
+Sovelluksen hakemistoon _PlanApp/target/_ voi luoda suoritettavan .jar-tiedoston (sen jossa ei lue original) ohjelmasta komennolla:
 
 ```mvn package```
 
@@ -54,8 +54,8 @@ Mikäli luot .jar-tiedoston, huomaathan suorittaa tiedoston täsmällisellä kom
 
 ### Checkstyle
 
-Checkstyle-asetukset on määritelty `checkstyle.xml` -tiedostossa. Se ei tarkista PlanAppUi-luokkaa, kuten `skipped_files.xml` -tiedostossa on määritetty.
+Checkstyle-asetukset on määritelty _checkstyle.xml_ -tiedostossa. Se ei tarkista PlanAppUi-luokkaa, kuten `skipped_files.xml`-tiedostossa on määritetty.
 
 ```mvn jxr:jxr checkstyle:checkstyle```
 
-Checkstyleraportti `checkstyle.html` sovelluksen kansioon PlanApp/target/site/
+Checkstyleraportti _checkstyle.html_ sovelluksen kansioon _PlanApp/target/site/_

@@ -59,7 +59,7 @@ public class PlanAppUi extends Application {
         Text welcome = new Text();
         
         logTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        logTitle.setText("PlanApp v. 0.9");    
+        logTitle.setText("PlanApp");    
         
         Hyperlink registerLink = new Hyperlink("Register");
         TextField logUsername = new TextField();

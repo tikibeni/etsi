@@ -2,15 +2,15 @@
 
 ## Konfigurointi
 
-Tällä hetkellä ohjelma tarvitsee toimiakseen sovelluksen juurihakemistoon tiedoston `config.file`, jonka sisältö on seuraava:
+Tällä hetkellä ohjelma tarvitsee toimiakseen sovelluksen juurihakemistoon tiedoston _config.file_, jonka sisältö on seuraava:
 
-`plans = plans.txt`
+`plans=plans.txt`
 - Sisältää suunnitelmat ja niihin liittyvät kurssit
 
-`courses = courses.txt`
+`courses=courses.txt`
 - Sisältää ennaltamääritetyt kurssit (kurssikoodi, kurssinimi) ja niiden esitietovaatimukset
-- HUOM! Ethän muokkaa `courses.txt`:n sisältöä. Toistaiseksi tiedoston sisältö on ennaltamääritetty eikä ohjelma muokkaa sisältöä mitenkään.
-    * Tähän liittyen tulee validointi, joka luo tiedoston kokonaan ohjelmakoodiin pohjautuen.
+
+Sekä `coursesInfo=` -osio, jonka myötä ohjelma automaattisesti ajon yhteydessä alustaa em. kurssitiedot _courses.txt_ -tiedostoon.
 
 Tämän avulla ohjelma käyttää em. tekstitiedostoja tietokantana.
 
