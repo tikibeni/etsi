@@ -42,7 +42,7 @@ public class CourseFileDao implements CourseDao {
                 
             // Handling the course's prerequisites part
             if (line.equals("PREREQUISITES:")) {
-               prerequisitesLine = true;
+                prerequisitesLine = true;
             }
             if (prerequisitesLine && reader.hasNextLine()) {
                 line = reader.nextLine();
@@ -74,32 +74,13 @@ public class CourseFileDao implements CourseDao {
         }
     }
     
-    // Creating new courses to file (CURRENTLY UNUSED)
-    private void save() throws Exception {
-        try (FileWriter writer = new FileWriter(new File(courseFile))) {
-            for (Course c : courses) {
-                // Writing the course's basic info
-                writer.write(c.getCourseCode() + ";" + c.getCourseName() + "\n");
-                
-                // Writing the course's prerequisite fields
-                writer.write("PREREQUISITES:");
-                writer.write("\n");
-                if (!c.getPrerequisites().isEmpty()) {
-                    for (Course preCourse : c.getPrerequisites()) {
-                        writer.write(preCourse.getCourseCode() + ";" + preCourse.getCourseName() + "\n");
-                    }
-                }
-                writer.write("\n");
-            }
-        }
-    }
-    
     // Returns existing courses for application to use
     @Override
     public List<Course> getCourses() {
         return courses;
     }
 
+    // Returns existing course based on coursecode
     @Override
     public Course findCourse(String courseCode) {
         for (Course c : courses) {

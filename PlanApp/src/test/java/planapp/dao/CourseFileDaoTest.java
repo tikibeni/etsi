@@ -1,4 +1,3 @@
-
 package planapp.dao;
 
 import java.io.File;
@@ -12,6 +11,7 @@ import org.junit.rules.TemporaryFolder;
 import planapp.domain.Course;
 
 public class CourseFileDaoTest {
+    // TODO
     
     @Rule
     public TemporaryFolder tempFolder = new TemporaryFolder();
@@ -22,28 +22,10 @@ public class CourseFileDaoTest {
     @Before
     public void setUp() throws Exception {
         courseFile = tempFolder.newFile("test_courses.txt");
-        
-        courseDao = new CourseFileDao(courseFile.getAbsolutePath(),"TKT20001;Tira\nPREREQUISITES:\nTKT10002;Ohpe\nTKT10003;Ohja\n");
-    }
-    
-    @Test
-    public void returnsExistingCourses() {
-        assertFalse(courseDao.getCourses().isEmpty());
-    }
-    
-    @Test
-    public void findsCoursesWithCourseCode() {
-        Course c = courseDao.findCourse("TKT20001");
-        
-        assertEquals("Tira", c.getCourseName());
-    }
-    
-    @Test
-    public void findsCoursePrerequisites() {
-        List<Course> prerequisites = courseDao.findCourse("TKT20001").getPrerequisites();
-        
-        assertEquals(2, prerequisites.size());
-    }
+        String courseInfo = "TKT10001;Johdatus tietojenkäsittelytieteeseen\nPREREQUISITES:\n\nTKT10002;Ohjelmoinnin perusteet\nPREREQUISITES:\n\nTKT10003;Ohjelmoinnin jatkokurssi\nPREREQUISITES:\nTKT10002;Ohjelmoinnin perusteet\n\n";
+       
+        courseDao = new CourseFileDao(courseFile.getAbsolutePath(), courseInfo);
+    }    
     
     @Test
     public void findReturnsNullIfNonExistingObject() {

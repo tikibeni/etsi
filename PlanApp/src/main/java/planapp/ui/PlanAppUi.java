@@ -171,9 +171,7 @@ public class PlanAppUi extends Application {
                     regNotification.setText("Something went wrong");
                     System.out.println(ex);
                 }
-            }
-            
-            // Would be great if it'd validate planname while writing (with 1 second delay && when over 2chars) EventListener
+            }            
         });
         
         regReturn.setOnAction((ActionEvent push) -> {
@@ -216,7 +214,6 @@ public class PlanAppUi extends Application {
         
         suggestTitle.setFont(Font.font("Arial", FontWeight.BOLD, 12));
         suggestedCourses.getChildren().add(suggestTitle);
-                
         
         VBox studySubjects = new VBox();
         Text menuTitle = new Text("Menu");

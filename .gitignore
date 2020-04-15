@@ -7,7 +7,7 @@ target/
 .project
 .settings/
 .vscode/
-plans.txt
-courses.txt
+/PlanApp/plans.txt
+/PlanApp/courses.txt
 /PlanApp/nbproject/
 /PlanApp/target/

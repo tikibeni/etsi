@@ -65,7 +65,7 @@ public class PlanFileDao implements PlanDao {
     }
     
     // Writing plans into file
-    private void save() throws Exception {
+    public void save() throws Exception {
         try (FileWriter writer = new FileWriter(new File(file))) {
             for (Plan p: plans) {
                 // Writing the plan's basic info into file
