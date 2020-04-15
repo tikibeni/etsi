@@ -20,6 +20,8 @@ Ohjelman voi ajaa ladattavan .jar-tiedoston kautta komentorivikomennolla:
 
 ```java -jar planapp.jar```
 
+Oletuksella, että .jar-tiedoston kanssa samassa kansiossa on tiedostot _config.file_, _pom.xml_, _checkstyle.xml_, _skipped_files.xml_,
+
 ## Kirjautumisnäkymä
 
 Kirjautumisnäkymässä voit kirjautua sisään suunnitelmanäkymään luodun suunnitelman nimellä ja painamalla `Login`.
