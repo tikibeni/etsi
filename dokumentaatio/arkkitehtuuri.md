@@ -20,7 +20,7 @@ Domainin PlanService käyttää PlanDao:ta ja CourseDao:ta.
 
 ### Rekisteröinti
 
-![alt text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri/regSequence.PNG "Rekisteröintikaavio")
+![alt text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri/regSequence.png "Rekisteröintikaavio")
 
 Rekisteröintinäkymään voidaan siirtyä kirjautumisnäkymästä nappia painamalla.
 
@@ -29,7 +29,7 @@ Tällöin UI saa tiedon, että rekisteröintiä yritetään, jonka myötä se an
 
 ### Kirjautuminen
 
-![alt text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri/logSequence.PNG "Kirjautumiskaavio")
+![alt text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri/logSequence.png "Kirjautumiskaavio")
 
 Kirjautuminen tapahtuu käyttäjän toimesta kirjautumisnäkymässä nappia painamalla.
 
