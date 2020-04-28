@@ -1,4 +1,3 @@
-
 package planapp.dao;
 
 import java.io.File;
@@ -10,7 +9,7 @@ import static org.junit.Assert.*;
 import org.junit.Rule;
 import org.junit.rules.TemporaryFolder;
 import planapp.domain.Plan;
-import planapp.domain.TestCourseDao;
+import planapp.domain.CourseDaoTest;
 
 public class PlanFileDaoTest {
     
@@ -24,13 +23,13 @@ public class PlanFileDaoTest {
     @Before
     public void setUp() throws Exception {
         planFile = tempFolder.newFile("test_plans.txt");
-        courseDao = new TestCourseDao();
+        courseDao = new CourseDaoTest();
         
         try (FileWriter file = new FileWriter(planFile.getAbsolutePath())) {
             file.write("freshplan;Fresher\nCOURSES:\nTKT10001;JTKT\nTKT10002;Ohpe\n\n");
         }
         
-        planDao = new PlanFileDao(planFile.getAbsolutePath(), courseDao);
+        planDao = new PlanFileDao(planFile.getAbsolutePath());
     }
     
     @Test

@@ -6,14 +6,14 @@ import static org.junit.Assert.*;
 
 public class PlanServicePlanTest {
     
-    TestPlanDao planDao;
-    TestCourseDao courseDao;
+    PlanDaoTest planDao;
+    CourseDaoTest courseDao;
     PlanService planService;
     
     @Before
     public void setUp() {
-        planDao = new TestPlanDao();
-        courseDao = new TestCourseDao();
+        planDao = new PlanDaoTest();
+        courseDao = new CourseDaoTest();
         planService = new PlanService(planDao, courseDao);
     }
     

@@ -8,14 +8,14 @@ import static org.junit.Assert.*;
 
 public class PlanServiceCourseTest {
     
-    TestCourseDao courseDao;
-    TestPlanDao planDao;
+    CourseDaoTest courseDao;
+    PlanDaoTest planDao;
     PlanService planService;
         
     @Before
     public void setUp() {
-        courseDao = new TestCourseDao();
-        planDao = new TestPlanDao();
+        courseDao = new CourseDaoTest();
+        planDao = new PlanDaoTest();
         Plan plan = new Plan("plan", "Test Plan");
         
         try {

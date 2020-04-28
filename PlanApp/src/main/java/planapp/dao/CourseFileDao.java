@@ -8,16 +8,19 @@ import java.util.List;
 import java.util.Scanner;
 import planapp.domain.Course;
 
+/**
+ * Initializes and maintains courses.txt via config.file and returns queries on object Course
+ */
 public class CourseFileDao implements CourseDao {
     public List<Course> courses;
     private String courseFile;
 
-    // Reading info from given coursefile for application usage
+    // Reading info from given coursefile for application usage during startup
     public CourseFileDao(String courseFile, String courseInfo) throws Exception {
         this.courses = new ArrayList<>();
         this.courseFile = courseFile;
         try {
-            initialize(courseFile);
+            initialize();
         } catch (FileNotFoundException e) {
             String[] lines = courseInfo.split("\n");
             try (FileWriter writer = new FileWriter(new File(courseFile))) {
@@ -25,14 +28,15 @@ public class CourseFileDao implements CourseDao {
                     writer.write(line + "\n");
                 }
                 writer.close();
-                initialize(courseFile);
+                initialize();
             } catch (Exception ee) {
-                System.out.println("Error while initializing file: courses.txt");
+                System.out.println("Error while initializing file: courses.txt. Reimplement course.file and try again.");
             }
         }
     }
     
-    private void initialize(String courseFile) throws FileNotFoundException {
+    // If courses.txt doesn't exist, initialize via config.file
+    private void initialize() throws FileNotFoundException {
         boolean prerequisitesLine = false;
         Scanner reader = new Scanner(new File(courseFile));
         Course latest = new Course("Placeholder", "Placeholder");
@@ -62,7 +66,7 @@ public class CourseFileDao implements CourseDao {
                 continue;
             }
                 
-            // Creating existing courses
+            // Reading existing courses into application
             if (!line.equals("")) {
                 String[] info = line.split(";");
                 String code = info[0];
@@ -74,13 +78,23 @@ public class CourseFileDao implements CourseDao {
         }
     }
     
-    // Returns existing courses for application to use
+    /**
+     * Returns all existing courses and course information within the application.
+     * 
+     * @return List-object containing Course-object(s)
+     */
     @Override
     public List<Course> getCourses() {
         return courses;
     }
 
-    // Returns existing course based on coursecode
+    /**
+     * Searches for code's corresponding course within the application via comparing.
+     * 
+     * @param courseCode - course code for search
+     * 
+     * @return Course if found, null if not found
+     */
     @Override
     public Course findCourse(String courseCode) {
         for (Course c : courses) {

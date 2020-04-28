@@ -1,13 +1,8 @@
-/laskarit/viikko2/Maksukortti/nbproject/
-/laskarit/viikko2/Maksukortti/target/
-/laskarit/viikko2/Unicafe/target
-/laskarit/viikko2/Unicafe/nbproject/
 target/
+nbproject/
+.settings/
 .classpath
 .project
-.settings/
 .vscode/
-/PlanApp/plans.txt
-/PlanApp/courses.txt
-/PlanApp/nbproject/
-/PlanApp/target/
+plans.txt
+courses.txt

@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import planapp.dao.PlanDao;
 
-public class TestPlanDao implements PlanDao {
+public class PlanDaoTest implements PlanDao {
     
     List<Plan> plans = new ArrayList<>();
     
-    public TestPlanDao(){
+    public PlanDaoTest(){
         plans.add(new Plan("Test", "Test Test"));
     }
 

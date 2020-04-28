@@ -58,3 +58,9 @@ Checkstyle-asetukset on määritelty _checkstyle.xml_ -tiedostossa. Se ei tarkis
 ```mvn jxr:jxr checkstyle:checkstyle```
 
 Checkstyleraportti _checkstyle.html_ sovelluksen kansioon _PlanApp/target/site/_
+
+### JavaDoc
+
+JavaDocin tiedostot voi luoda kansioon _PlanApp/target/site/apidocs/_ komennolla
+
+```mvn javadoc:javadoc```

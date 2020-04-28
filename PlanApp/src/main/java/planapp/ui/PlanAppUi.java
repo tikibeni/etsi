@@ -11,11 +11,13 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -26,12 +28,16 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import planapp.dao.CourseFileDao;
 import planapp.dao.PlanFileDao;
 import planapp.domain.Course;
 import planapp.domain.PlanService;
 
+/**
+ * Application user interface
+ */
 public class PlanAppUi extends Application {
     
     private PlanService planService;
@@ -41,6 +47,9 @@ public class PlanAppUi extends Application {
     
     @Override
     public void start(Stage stg) throws Exception {   
+        // Settings for screen
+        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+        
         // Some of plan components:
         VBox courseCollection = new VBox();
         Text planInstruction = new Text("");
@@ -88,6 +97,8 @@ public class PlanAppUi extends Application {
                     courseCollection.getChildren().add(planInstruction);
                 }
                 
+                stg.setX((screenBounds.getWidth() - 1000) / 2);
+                stg.setY((screenBounds.getHeight() - 600) / 2);
                 stg.setScene(plan);
             }
         });
@@ -195,7 +206,7 @@ public class PlanAppUi extends Application {
         register = new Scene(regGrid, 500, 200);
         
         
-        // Plan components:        
+        // Plan components:       
         List<Course> courses = planService.allCourses();
         List<Course> nextCourses = new ArrayList<>();
         
@@ -220,9 +231,11 @@ public class PlanAppUi extends Application {
         Button saveButton = new Button("Save");
                 
         planInstruction.setFont(Font.font("Arial", FontWeight.BOLD, 12));        
+        
         courseCollection.getChildren().add(planInstruction);
         courseCollection.setAlignment(Pos.TOP_LEFT);
         courseCollection.setPadding(new Insets(10, 10, 10, 10));
+        
         List<CheckBox> boxes = new ArrayList<>();
  
         saveButton.setOnAction((ActionEvent push) -> {
@@ -324,6 +337,8 @@ public class PlanAppUi extends Application {
             
             logUsername.setText("");
             planService.logout();
+            stg.setX((screenBounds.getWidth() - 500) / 2);
+            stg.setY((screenBounds.getHeight() - 200) / 2);
             stg.setScene(login);
         });
         
@@ -337,6 +352,8 @@ public class PlanAppUi extends Application {
                 logNotification.setText("Something went wrong");
             }
             
+            stg.setX((screenBounds.getWidth() - 500) / 2);
+            stg.setY((screenBounds.getHeight() - 200) / 2);
             stg.setScene(login);
         });
         
@@ -355,11 +372,13 @@ public class PlanAppUi extends Application {
         planGrid.setRight(suggestedCourses);
         planGrid.setCenter(courseCollection);
         planGrid.setTop(topBar);
-        
-        plan = new Scene(planGrid, 1000, 800);
+                
+        plan = new Scene(planGrid, 1000, 600);
         
         
         // Run application:
+        stg.setX((screenBounds.getWidth() - 500) / 2);
+        stg.setY((screenBounds.getHeight() - 200) / 2);
         stg.setTitle("PlanApp");
         stg.setScene(login);
         stg.show();       
@@ -376,7 +395,7 @@ public class PlanAppUi extends Application {
         String courseInfo = prop.getProperty("coursesInfo");
         
         CourseFileDao courseDao = new CourseFileDao(courseFile, courseInfo);
-        PlanFileDao planDao = new PlanFileDao(planFile, courseDao);
+        PlanFileDao planDao = new PlanFileDao(planFile);
         
         this.planService = new PlanService(planDao, courseDao);
     }

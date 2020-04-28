@@ -40,6 +40,7 @@ Sovellukseen voi rekisteröityä, ja se säilyttää kunkin käyttäjän syött�
 - TODO:
   * Vahvistusilmoitus suunnitelman poiston yhteydessä
   * Esitietokaaviosivun sisältö
+  * Yhdistä scrollpaneen
 
 ## Kehitysideoita
 
