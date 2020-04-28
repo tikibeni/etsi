@@ -27,8 +27,7 @@ Sovellukseen voi rekisteröityä, ja se säilyttää kunkin käyttäjän syött�
   * TEHTY: Virheilmoitus mikäli yrittää kirjautua virheellisellä merkkijonolla tai suunnitelmalla jota ei ole olemassa.
   * TEHTY: Ei luo muutoksia plans.txt-tiedostoon virhetilanteissa.
 - TEHTY: Kirjautumisen jälkeen avautuu suunnittelusivu opinnoista
-- TODO:
-  * Rekisteröinnin yhteydessä validoi EventListenerillä
+
 
 ### Suunnittelusivu
 
@@ -47,6 +46,7 @@ Sovellukseen voi rekisteröityä, ja se säilyttää kunkin käyttäjän syött�
 - TODO:
   * Sovelluslogiikan erottelun + graafisen käyttöliittymän hiominen
   * DONE: Näkymät pysyvät keskellä näyttöä
+  * Extra: rekisteröinnin validointi eventlistenerillä
   
 - Sovellukseen voi syöttää suoritettujen kurssien arvosanat, jonka myötä laskee keskiarvot (koko, pääaine, sivuaine(et))
 - Useamman aineen (esim. matematiikka) esitiedot ja suunnittelumahdollisuus.

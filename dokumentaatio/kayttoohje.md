@@ -12,7 +12,7 @@ Tällä hetkellä ohjelma tarvitsee toimiakseen sovelluksen juurihakemistoon tie
 
 Sekä `coursesInfo=` -osio, jonka myötä ohjelma automaattisesti ajon yhteydessä alustaa em. kurssitiedot _courses.txt_ -tiedostoon.
 
-Tämän avulla ohjelma käyttää em. tekstitiedostoja tietokantana.
+Tämän avulla ohjelma käyttää em. tekstitiedostoja tietokantana. Tarkempi kuvaus [täällä](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
 _config.file_ sisältö löytyy myös [täältä](https://github.com/tikibeni/ot-harjoitustyo/blob/master/PlanApp/config.file)
 
@@ -22,7 +22,7 @@ _config.file_ sisältö löytyy myös [täältä](https://github.com/tikibeni/ot
 
 Ohjelman voi ajaa ladattavan .jar-tiedoston kautta komentorivikomennolla:
 
-```java -jar planapp.jar```
+`java -jar planapp.jar`
 
 Oletuksella, että .jar-tiedoston kanssa samassa kansiossa on tiedosto _config.file_ sisältöineen. 
 
@@ -36,7 +36,7 @@ Vaihtoehtoisesti .jar-tiedoston sijaan ohjelman voi ajaa lataamalla lähdekoodin
 
 Ohjelman saa näin ajettua mm. Netbeansilla projektin avaamalla ja komentorivikomennolla (hakemistossa PlanApp/):
 
-```mvn compile exec:java -Dexec.mainClass=planapp.Main```
+`mvn compile exec:java -Dexec.mainClass=planapp.Main`
 
 Muut ohjelmaan liittyvät komentorivikomennot ja niiden ohjeet löydät [täältä](https://github.com/tikibeni/ot-harjoitustyo/blob/master/README.md)
 

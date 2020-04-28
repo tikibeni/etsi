@@ -26,6 +26,35 @@ Näin jokaisen käynnistyksen yhteydessä sovellus kutsuu DAO-luokkien konstrukt
 
 Uutta tietoa tallennettaessa palvelu kokoaa tallennettavat tai poistettavat oliot kasaan, jonka myötä sovellus tallentaa DAO-luokkia hyödyntäen muutokset tiedostoon.
 
+Sisältötyypit tiedostoilla ovat:
+
+- config.file
+
+```
+    plans=plans.txt
+    courses=courses.txt
+    coursesInfo=TKT10001;Johdatus tietojenkäsittelytieteeseen\nPREREQUISITES:\n\n ... 
+```
+
+- courses.txt
+
+```
+    TKT10001;Johdatus tietojenkäsittelytieteeseen
+    PREREQUISITES:
+    TKT10002;Ohjelmoinnin perusteet
+    PREREQUISITES:
+```
+
+- plans.txt
+
+```
+    fresh;fresher
+    COURSES:
+    TKT10001;Johdatus tietojenkäsittelytieteeseen
+```
+
+Näin courses.txt:n sisältö tulee suoraan config.file "coursesInfo" -osiosta. Tiedostojen lukeminen ja tietojen erottelu tapahtuu Scannerilla, joka käy rivi kerrallaan tietoja läpi. Oleellisina tunnisteina toimivat `PREREQUISITES:` ja `COURSES:` -osiot, jotka ilmoittavat ohjelmalle, että nyt käsitellään esitietoja tai kursseja, kun aiemmin ollaan käsitelty peruskursseja tai Plan-oliota.
+
 ## Sekvenssikaaviot sovelluksen perustoiminnallisuuksista
 
 ### Rekisteröinti
@@ -38,6 +67,8 @@ Rekisteröinti tapahtuu käyttäjän toimesta rekisteröintinäkymässä sopivat
 Tällöin UI saa tiedon, että rekisteröintiä yritetään, jonka myötä se antaa syötetyt tiedot planService-luokalle, joka tarkistaa planDaon avulla tietokannasta onko tietoja vastaavaa suunnitelmaa jo olemassa. Mikäli suunnitelmaa ei entuudestaan ole olemassa, planService luo uuden Plan-olion ja syöttää sen planDaolle kantaan tallentamista varten. Ketjun onnistuttua näkymä vaihtuu takaisin kirjautumisnäkymään.
 
 ### Suunnitelman poistaminen
+
+![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri/deleteplanSeq.png "Poistaminen")
 
 Suunnitelman poistaminen tapahtuu käyttäjän toimesta Delete plan -nappia painamalla suunnitelmanäkymässä. 
 
@@ -53,13 +84,15 @@ Kun käyttäjä on syöttänyt kirjautumiseen suunnitelman nimen ja painaa nappi
 
 ### Uloskirjautuminen
 
+![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri/logoutSeq.png "Logout")
+
 Uloskirjautuminen tapahtuu käyttäjän toimesta suunnitelmanäkymästä logout-nappia painamalla.
 
 Tämän myötä UI pyytää palvelua resetoimaan nykyisen suunnitelman attribuutin tyhjäksi. Lopulta UI vaihtaa näkymänsä kirjautumisruutuun.
 
 ### Kurssin syöttäminen suunnitelmaan
 
-![alt-text]( "Kurssin syöttökaavio")
+![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri/selectingSeq.png "Kurssin syöttökaavio")
 
 Kurssin tallentaminen suunnitelmaan tapahtuu suunnitelmanäkymästä checkboxeja valitsemalla ja painamalla Save-nappia.
 
@@ -67,11 +100,15 @@ Tämän jälkeen UI lähettää checkboxien tiedot palvelulle, joka hakee Course
 
 ### Kurssin poistaminen suunnitelmasta
 
+![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri/removalSeq.png "Removal")
+
 Kurssin poistaminen suunnitelmasta tapahtuu suunnitelmanäkymästä checkboxien valintoja poistamalla ja painamalla Save-nappia.
 
 Tämän myötä UI tekee lähes identtisen ketjun kuin em. Kurssien syöttämisessä, mutta lisäilyjen ja valintojen puuttumisen sijaan, se poistaa nykysuunnitelmasta kurssit joita ei ole nyt valittuna checkboxeissa. Lopulta planService (palvelu) pyytää planDaota tallentamaan muutokset tietokantaan.
 
 ### Kurssiehdotuksien toimintaperiaate
+
+![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri/suggestionSeq.png "Suggestions")
 
 Kurssiehdotusten toimintaperiaate perustuu aiemmin esiteltyihin kurssivalintojen syöttämiseen ja poistamiseen ja aktivoituu siis painamalla nappia Save.
 

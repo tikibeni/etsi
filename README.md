@@ -33,23 +33,23 @@ Viimeisin [täältä](https://github.com/tikibeni/ot-harjoitustyo/releases)
 
 Ohjelman voi vaihtoehtoisesti ajaa konsolista hakemiston _PlanApp/_ sisällä komennolla:
 
-```mvn compile exec:java -Dexec.mainClass=planapp.Main```
+`mvn compile exec:java -Dexec.mainClass=planapp.Main`
 
 ### Testit
 
 Testit voi ajaa terminaalista komennolla: 
 
-```mvn test```
+`mvn test`
 
 Kattavuusraportti _index.html_ testeistä sovelluksen kansioon _PlanApp/target/site/jacoco/_ komennolla: 
 
-```mvn jacoco:report```
+`mvn jacoco:report`
 
 ### Ohjelman jar-tiedoston luominen
 
 Sovelluksen hakemistoon _PlanApp/target/_ voi luoda suoritettavan .jar-tiedoston (sen jossa ei lue original) ohjelmasta komennolla:
 
-```mvn package```
+`mvn package`
 
 ### Checkstyle
 
@@ -57,7 +57,7 @@ Checkstyle-asetukset on määritelty _checkstyle.xml_ -tiedostossa. Checkstyle e
 
 Näin checkstylen ajaminen tarvitsee _checkstyle.xml_- ja `skipped_files.xml`-tiedoston suoritushakemistoon toimiakseen oikein.
 
-```mvn jxr:jxr checkstyle:checkstyle```
+`mvn jxr:jxr checkstyle:checkstyle`
 
 Checkstyleraportti _checkstyle.html_ sovelluksen kansioon _PlanApp/target/site/_
 
@@ -65,4 +65,4 @@ Checkstyleraportti _checkstyle.html_ sovelluksen kansioon _PlanApp/target/site/_
 
 JavaDocin tiedostot voi luoda kansioon _PlanApp/target/site/apidocs/_ komennolla
 
-```mvn javadoc:javadoc```
+`mvn javadoc:javadoc`
