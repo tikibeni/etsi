@@ -5,7 +5,7 @@ import java.util.List;
 import planapp.dao.PlanDao;
 
 public class PlanDaoTest implements PlanDao {
-    
+    // TODO
     List<Plan> plans = new ArrayList<>();
     
     public PlanDaoTest(){
@@ -45,8 +45,17 @@ public class PlanDaoTest implements PlanDao {
     }
 
     @Override
-    public void updatePlans() throws Exception {
-
+    public void save() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    @Override
+    public boolean addPlan(String line) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addCourses(String line) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -9,4 +9,6 @@ import planapp.domain.Course;
 public interface CourseDao {
     List<Course> getCourses();
     Course findCourse(String courseCode);
+    boolean addCourse(String line);
+    void addPrerequisites(String line);
 }

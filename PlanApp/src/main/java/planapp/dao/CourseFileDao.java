@@ -12,8 +12,10 @@ import planapp.domain.Course;
  * Initializes and maintains courses.txt via config.file and returns queries on object Course
  */
 public class CourseFileDao implements CourseDao {
-    public List<Course> courses;
+    private List<Course> courses;
     private String courseFile;
+    private Scanner reader;
+    private Course latest;
 
     // Reading info from given coursefile for application usage during startup
     public CourseFileDao(String courseFile, String courseInfo) throws Exception {
@@ -35,45 +37,56 @@ public class CourseFileDao implements CourseDao {
         }
     }
     
-    // If courses.txt doesn't exist, initialize via config.file
+    // Initialize courses.txt via config.file
     private void initialize() throws FileNotFoundException {
-        boolean prerequisitesLine = false;
-        Scanner reader = new Scanner(new File(courseFile));
-        Course latest = new Course("Placeholder", "Placeholder");
+        reader = new Scanner(new File(courseFile));
+        latest = new Course("Place", "holder");
             
         while (reader.hasNextLine()) {
             String line = reader.nextLine();
-                
-            // Handling the course's prerequisites part
             if (line.equals("PREREQUISITES:")) {
-                prerequisitesLine = true;
+                // Handling the course's prerequisites part
+                addPrerequisites(line);
+            } else if (!line.equals("")) {
+                // Reading existing courses into application
+                addCourse(line);
             }
-            if (prerequisitesLine && reader.hasNextLine()) {
-                line = reader.nextLine();
-                while (!line.equals("")) {
-                    String[] preInfo = line.split(";");
-                    String preCode = preInfo[0];
-                    String preName = preInfo[1];
-                    latest.addPrerequisite(new Course(preCode, preName));
+        }
+    }
+    
+    /**
+     * During initialization reads lines containing the basic info of courses and delivers for application usage.
+     * @param line - Scanner's current line
+     * @return true if added successfully, false otherwise
+     */
+    @Override
+    public boolean addCourse(String line) {
+        String[] info = line.split(";");
+        String code = info[0];
+        String name = info[1];
+        latest = new Course(code, name);
+        return courses.add(latest);     
+    }
+    
+    /**
+     * During initialization handles course prerequisite lines and delivers for application usage.
+     * @param line - Scanner's current line
+     */
+    @Override
+    public void addPrerequisites(String line) {
+        if (reader.hasNextLine()) {
+            line = reader.nextLine();
+            while (!line.equals("")) {
+                String[] preInfo = line.split(";");
+                String preCode = preInfo[0];
+                String preName = preInfo[1];
+                latest.addPrerequisite(new Course(preCode, preName));
                         
-                    if (reader.hasNext()) {
-                        line = reader.nextLine();   
-                    } else {
-                        break;
-                    }
+                if (reader.hasNext()) {
+                    line = reader.nextLine();   
+                } else {
+                    break;
                 }
-                prerequisitesLine = false;
-                continue;
-            }
-                
-            // Reading existing courses into application
-            if (!line.equals("")) {
-                String[] info = line.split(";");
-                String code = info[0];
-                String name = info[1];
-                Course course = new Course(code, name);
-                latest = course;
-                courses.add(course); 
             }
         }
     }

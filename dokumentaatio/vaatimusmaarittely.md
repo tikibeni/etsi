@@ -46,6 +46,7 @@ Sovellukseen voi rekisteröityä, ja se säilyttää kunkin käyttäjän syött�
 
 - TODO:
   * Sovelluslogiikan erottelun + graafisen käyttöliittymän hiominen
+  * DONE: Näkymät pysyvät keskellä näyttöä
   
 - Sovellukseen voi syöttää suoritettujen kurssien arvosanat, jonka myötä laskee keskiarvot (koko, pääaine, sivuaine(et))
 - Useamman aineen (esim. matematiikka) esitiedot ja suunnittelumahdollisuus.

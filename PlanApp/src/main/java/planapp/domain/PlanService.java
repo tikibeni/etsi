@@ -106,7 +106,7 @@ public class PlanService {
     public boolean addCourse(Course course) {
         if (currentPlan.addCourse(course)) {
             try {
-                planDao.updatePlans();
+                planDao.save();
             } catch (Exception e) {
                 return false;
             }
@@ -145,7 +145,7 @@ public class PlanService {
     public boolean removeCourse(Course course) {
         if (currentPlan.removeCourse(course)) {
             try {
-                planDao.updatePlans();                
+                planDao.save();                
             } catch (Exception e) {
                 return false;
             }

@@ -9,67 +9,50 @@ import java.util.Scanner;
 import planapp.domain.Course;
 import planapp.domain.Plan;
 
-
 /**
  * Initializes and maintains plans.txt via config.file, return queries on object Plan, creates and deletes Plan-objects
  */
 public class PlanFileDao implements PlanDao {
     private List<Plan> plans;
     private String file;
+    private Plan latest;
+    private Scanner reader;
     
-    // Reading Plan-information from given file for application usage
     public PlanFileDao(String file) throws Exception {
         plans = new ArrayList<>();
-        this.file = file;
-        
+        this.file = file;        
         try {
-            boolean courseLines = false;
-            Scanner reader = new Scanner(new File(file));
-            Plan latest = new Plan("Placeholder", "Placeholder");
-            
-            // Plan's courseline handling
-            while (reader.hasNextLine()) {
-                String line = reader.nextLine();
-                if (line.equals("COURSES:")) {
-                    courseLines = true;
-                }
-                if (courseLines && reader.hasNextLine()) {
-                    line = reader.nextLine();
-                    while (!line.equals("")) {
-                        String[] courseLine = line.split(";");
-                        String courseCode = courseLine[0];
-                        String courseName = courseLine[1];
-                        latest.addCourse(new Course(courseCode, courseName));
-                        
-                        if (reader.hasNext()) {
-                            line = reader.nextLine();
-                        } else {
-                            break;
-                        }
-                    }
-                    
-                    courseLines = false;
-                    continue;
-                }
-                
-                // Plan core's handling
-                if (!line.equals("")) {
-                    String[] parts = line.split(";");
-                    Plan p = new Plan(parts[0], parts[1]);
-                    latest = p;
-                    plans.add(p);
-                }
-                
-            }
-        // Initialize the plan.txt if non-existing    
+            initialize();   
         } catch (FileNotFoundException e) {
             FileWriter writer = new FileWriter(new File(file));
             writer.close();
         }
     }
     
-    // Writing plans into file
-    private void save() throws Exception {
+   // Reading information from plans.txt for application usage
+    private void initialize() throws FileNotFoundException {
+        reader = new Scanner(new File(file));
+        latest = new Plan("Place", "holder");
+            
+        // Plan's courseline handling
+        while (reader.hasNextLine()) {
+            String line = reader.nextLine();
+            if (line.equals("COURSES:")) {
+                addCourses(line);
+            } else if (!line.equals("")) {
+                addPlan(line);
+            }     
+        }
+    }
+    
+    // Writing new plan into file
+    /**
+     * Writing a new plan into file using FileWriter
+     * 
+     * @throws Exception if something goes wrong
+     */
+    @Override
+    public void save() throws Exception {
         try (FileWriter writer = new FileWriter(new File(file))) {
             for (Plan p: plans) {
                 // Writing the plan's basic info into file
@@ -86,6 +69,44 @@ public class PlanFileDao implements PlanDao {
                 writer.write("\n");
             }
         }
+    }
+    
+    /**
+     * During initialization reads selected course lines from plans.txt and gives them for application usage
+     * 
+     * @param line - scanner's current line
+     */
+    @Override
+    public void addCourses(String line) {
+        if (reader.hasNextLine()) {
+            line = reader.nextLine();
+            while (!line.equals("")) {
+                String[] courseLine = line.split(";");
+                String courseCode = courseLine[0];
+                String courseName = courseLine[1];
+                latest.addCourse(new Course(courseCode, courseName));
+                        
+                if (reader.hasNext()) {
+                    line = reader.nextLine();
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+    
+    /**
+     * During initialization reads plans from plans.txt and gives them for application usage.
+     * 
+     * @param line - scanner's current line
+     * @return true if added successfully, false otherwise
+     */
+    @Override
+    public boolean addPlan(String line) {
+        String[] parts = line.split(";");
+        Plan p = new Plan(parts[0], parts[1]);
+        latest = p;
+        return plans.add(p);
     }
 
     /**
@@ -149,15 +170,5 @@ public class PlanFileDao implements PlanDao {
         }
         
         return false;
-    }
-    
-    /**
-     * CONSIDER MAKING SAVE()-METHOD PROTECTED AND DELETE THIS FROM EVERYWHERE.
-     * Will trigger the save()-method. Initialized for testing purposes
-     * @throws Exception if something went wrong during file handling
-     */
-    @Override
-    public void updatePlans() throws Exception {
-        save();
     }
 }

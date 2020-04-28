@@ -10,6 +10,8 @@ public interface PlanDao {
     Plan create(Plan plan) throws Exception;
     Plan findPlan(String planName);
     List<Plan> allPlans();
+    void save() throws Exception;
     boolean deletePlan(String planName) throws Exception;
-    void updatePlans() throws Exception;
+    boolean addPlan(String line);
+    void addCourses(String line);
 }
