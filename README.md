@@ -25,7 +25,7 @@ Tuntikirjanpito: [tuntikirjanpito.md](https://github.com/tikibeni/ot-harjoitusty
 
 ## Releaset
 
-Ensimmäinen: [v1.0](https://github.com/tikibeni/ot-harjoitustyo/releases/tag/v1.0)
+Viimeisin [täältä](https://github.com/tikibeni/ot-harjoitustyo/releases)
 
 ## Komentorivitoiminnot
 
@@ -53,7 +53,9 @@ Sovelluksen hakemistoon _PlanApp/target/_ voi luoda suoritettavan .jar-tiedoston
 
 ### Checkstyle
 
-Checkstyle-asetukset on määritelty _checkstyle.xml_ -tiedostossa. Se ei tarkista PlanAppUi-luokkaa, kuten `skipped_files.xml`-tiedostossa on määritetty.
+Checkstyle-asetukset on määritelty _checkstyle.xml_ -tiedostossa. Checkstyle ei tarkista PlanAppUi-luokkaa, kuten `skipped_files.xml`-tiedostossa on määritetty.
+
+Näin checkstylen ajaminen tarvitsee _checkstyle.xml_- ja `skipped_files.xml`-tiedoston suoritushakemistoon toimiakseen oikein.
 
 ```mvn jxr:jxr checkstyle:checkstyle```
 

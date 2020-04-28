@@ -26,13 +26,13 @@ Ohjelman voi ajaa ladattavan .jar-tiedoston kautta komentorivikomennolla:
 
 Oletuksella, että .jar-tiedoston kanssa samassa kansiossa on tiedosto _config.file_ sisältöineen. 
 
-Viimeisimmän .jar-tiedoston voi ladata [täältä](https://github.com/tikibeni/ot-harjoitustyo/releases/tag/v1.0)
+Viimeisimmän .jar-tiedoston voi ladata [täältä](https://github.com/tikibeni/ot-harjoitustyo/releases)
 
-Tiedoston voi tarvittaessa luoda itse ja kopioida tiedot [täältä](https://github.com/tikibeni/ot-harjoitustyo/blob/master/PlanApp/config.file).
+Tiedoston _config.file_ voi tarvittaessa luoda itse ja kopioida tiedot [täältä](https://github.com/tikibeni/ot-harjoitustyo/blob/master/PlanApp/config.file).
 
 ### Source codena
 
-Vaihtoehtoisesti .jar-tiedoston sijaan ohjelman voi ajaa lataamalla lähdekoodin, joka löytyy [täältä](https://github.com/tikibeni/ot-harjoitustyo/releases/tag/v1.0).
+Vaihtoehtoisesti .jar-tiedoston sijaan ohjelman voi ajaa lataamalla lähdekoodin, joka löytyy [täältä](https://github.com/tikibeni/ot-harjoitustyo/releases).
 
 Ohjelman saa näin ajettua mm. Netbeansilla projektin avaamalla ja komentorivikomennolla (hakemistossa PlanApp/):
 

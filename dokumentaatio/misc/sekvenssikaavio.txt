@@ -7,7 +7,7 @@ UI->planService: createPlan("fresh","fresher")
 planService->planDao: findPlan("fresh")
 planDao-->planService: null
 planService->Plan: new Plan("fresh","fresher")
-planService->PlanDao: create(fresh)
+planService->planDao: create(fresh)
 planService-->UI: true
 UI->UI: stg.setScene(login)
 UI-->User:
@@ -16,7 +16,7 @@ UI-->User:
 title Login
 
 User->UI: click logButton
-UI->PlanService: login("fresh","fresher")
+UI->PlanService: login("fresh")
 PlanService->planDao: findPlan("fresh")
 planDao-->PlanService: plan
 PlanService-->UI: true
