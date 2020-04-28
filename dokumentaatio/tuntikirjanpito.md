@@ -37,7 +37,7 @@
 15.4.: Ydinkonfigurointia, testien muokkaamista, dokumentaatiota, ensimmäinen release
 - 4,5h
 
-28.4.: Javadoc, UI:n hiomista, dokumentointia
-- x,yh
+28.4.: Javadoc, UI:n hiomista, testausta, dokumentointia
+- 8,0h
 
-Yhteensä: 35,25h + 28.4.
+Yhteensä: 43,25h

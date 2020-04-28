@@ -38,7 +38,7 @@ Ohjelman saa näin ajettua mm. Netbeansilla projektin avaamalla ja komentoriviko
 
 `mvn compile exec:java -Dexec.mainClass=planapp.Main`
 
-Muut ohjelmaan liittyvät komentorivikomennot ja niiden ohjeet löydät [täältä](https://github.com/tikibeni/ot-harjoitustyo/blob/master/README.md)
+Muut ohjelmaan liittyvät komentorivikomennot ja niiden ohjeet löydät [täältä](https://github.com/tikibeni/ot-harjoitustyo#komentorivitoiminnot)
 
 
 ## Kirjautumisnäkymä
