@@ -22,3 +22,77 @@ planDao-->PlanService: plan
 PlanService-->UI: true
 UI->UI: stg.setScene(plan)
 UI-->User:
+
+
+title Logout
+
+User->UI: click Logout
+UI->PlanService: logout()
+PlanService->PlanService: currentPlan=null
+UI->UI: stg.setScene(login)
+UI-->User:
+
+
+title Course selecting to plan
+
+User->UI: click Save
+UI->PlanService: findCourse(checkBoxCode)
+PlanService->courseDao: findCourse(checkBoxCode)
+courseDao-->PlanService: course
+PlanService-->UI: course
+UI->PlanService: selectedCourses().contains(course)
+PlanService->Plan: currentPlan.getCourses()
+Plan-->PlanService: List<Course>
+PlanService-->UI: false
+UI->PlanService: addCourse(course)
+PlanService->Plan: addCourse(course)
+Plan-->PlanService: true
+PlanService->planDao: save()
+planDao-->PlanService: true
+PlanService-->UI: true
+
+
+title Course removal from plan
+
+User->UI: click Save
+UI->PlanService: findCourse(checkBoxCode)
+PlanService->courseDao: findCourse(checkBoxCode)
+courseDao-->PlanService: course
+PlanService-->UI: course
+UI->PlanService: selectedCourses().contains(course)
+PlanService->Plan: currentPlan.getCourses()
+Plan-->PlanService: List<Course>
+PlanService-->UI: false
+UI->PlanService: removeCourse(course)
+PlanService->Plan: removeCourse(course)
+Plan-->PlanService: true
+PlanService->planDao: save()
+planDao-->PlanService: true
+PlanService-->UI: true
+
+
+title Suggestion system
+
+User->UI: click Save
+UI->Course: getPrerequisites()
+Course-->UI: List<Course>
+UI->PlanService: selectedCourses()
+PlanService->Plan: currentPlan.getCourses()
+Plan-->PlanService: List<Course>
+PlanService-->UI: List<Course>
+UI->Course: cc.toString()
+Course-->UI: String
+UI-->User:
+
+
+title Delete plan
+
+User->UI: click Delete plan
+UI->planService: deletePlan()
+planService->Plan: getPlanName()
+Plan-->planService: String
+planService->planDao: deletePlan(name)
+planDao-->planService: true
+planService-->UI: true
+UI->UI: stg.setScene(login)
+UI-->User:
