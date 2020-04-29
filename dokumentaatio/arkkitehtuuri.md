@@ -41,8 +41,10 @@ Sisältötyypit tiedostoilla ovat:
 ```
     TKT10001;Johdatus tietojenkäsittelytieteeseen
     PREREQUISITES:
+    
     TKT10002;Ohjelmoinnin perusteet
     PREREQUISITES:
+    ...
 ```
 
 - plans.txt
@@ -51,6 +53,11 @@ Sisältötyypit tiedostoilla ovat:
     fresh;fresher
     COURSES:
     TKT10001;Johdatus tietojenkäsittelytieteeseen
+    
+    tiramaisteri;gitgud
+    COURSES:
+    TKT10001;Johdatus tietojenkäsittelytieteeseen
+    ...
 ```
 
 Näin courses.txt:n sisältö tulee suoraan config.file "coursesInfo" -osiosta. Tiedostojen lukeminen ja tietojen erottelu tapahtuu Scannerilla, joka käy rivi kerrallaan tietoja läpi. Oleellisina tunnisteina toimivat `PREREQUISITES:` ja `COURSES:` -osiot, jotka ilmoittavat ohjelmalle, että nyt käsitellään esitietoja tai kursseja, kun aiemmin ollaan käsitelty peruskursseja tai Plan-oliota.
