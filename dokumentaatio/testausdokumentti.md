@@ -1,6 +1,6 @@
 # Testausdokumentti
 
-Ohjelmaa on testattu manuaalisesti luoduilla JUNIT-testiluokilla.
+Ohjelman automaattinen testaus tapahtuu luoduilla JUNIT-testiluokilla, jotka löytyvät projektin testipakkauksesta.
 
 ## Domain-pakkaus
 

@@ -120,3 +120,4 @@ Tämän myötä UI tekee lähes identtisen ketjun kuin em. Kurssien syöttämise
 Kurssiehdotusten toimintaperiaate perustuu aiemmin esiteltyihin kurssivalintojen syöttämiseen ja poistamiseen ja aktivoituu siis painamalla nappia Save.
 
 Tämän pohjalta UI alkaa palvelun kanssa tarkistamaan, mitä kursseja käyttäjälle voidaan ehdottaa. UI hakee kurssien esitietovaatimukset ja vertailee niitä aktiivisesti nykyisen suunnitelman valittuihin kursseihin. Mikäli kaikki esitiedoiksi merkityt kurssit on suoritettu, kurssia voidaan ehdottaa. Tämän myötä UI hakee kultakin sopivalta kurssilta tiedot ja näyttää ne käyttäjälle listana.
+

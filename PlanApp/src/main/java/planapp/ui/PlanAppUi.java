@@ -524,6 +524,8 @@ public class PlanAppUi extends Application {
                     logNotification.setText("Something went wrong");
                 }
                 
+                courseCollection.getChildren().clear();
+                suggestedCourses.getChildren().clear();
                 stg.setX((screenBounds.getWidth() - 500) / 2);
                 stg.setY((screenBounds.getHeight() - 200) / 2);
                 stg.setScene(login);
@@ -532,6 +534,8 @@ public class PlanAppUi extends Application {
         
         // System course reset
         resetCourses.setOnAction((ActionEvent push) -> {
+            courseCollection.getChildren().clear();
+            suggestedCourses.getChildren().clear();
             newCourseCode.clear();
             newCourseName.clear();
             planInstruction.setText("");

@@ -8,7 +8,7 @@ Tällä hetkellä ohjelma tarvitsee toimiakseen sovelluksen juurihakemistoon tie
 - Sisältää luodut suunnitelmat ja niihin liitetyt kurssit.
 
 `courses=courses.txt`
-- Sisältää ennaltamääritetyt kurssit (kurssikoodi, kurssinimi) ja niiden esitietovaatimukset
+- Sisältää ennaltamääritetyt sekä luodut kurssit (kurssikoodi, kurssinimi) ja niiden esitietovaatimukset.
 
 Sekä `coursesInfo=` -osio, jonka myötä ohjelma automaattisesti ajon yhteydessä alustaa em. kurssitiedot _courses.txt_ -tiedostoon.
 
