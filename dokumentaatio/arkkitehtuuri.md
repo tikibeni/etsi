@@ -138,6 +138,6 @@ Sovelluksessa voi luoda omia kursseja ja valita niille esitietovaatimuksia. Käy
 
 ## Sovellukseen jääneet heikkoudet
 
-UI-luokan koodia voisi optimoida ja järjestellä huomattavasti. 
+UI-luokan koodia voisi optimoida ja järjestellä huomattavasti. Tällä hetkellä UI sisältää huomattavasti toistuvaa koodia esim. näyttöasetusten ja erilaisten kenttien tyhjennyksen suhteen.
 
-Lisäksi epäloogista on, ettei sovelluksessa vielä pysty muokkaamaan nykyisiä suunnitelmia nimitiedoilta tai olemassaolevia kursseja nimi- ja esitiedoilta. Nämä tosin ovat varsin helposti toteutettavissa jatkossa.
+Sovelluksessa epäloogista on, ettei siinä vielä pysty muokkaamaan nykyisiä suunnitelmia nimitiedoilta tai olemassaolevia kursseja nimi- ja esitiedoilta. Nämä tosin ovat varsin helposti toteutettavissa jatkossa.
