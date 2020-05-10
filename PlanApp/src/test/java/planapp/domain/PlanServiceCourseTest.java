@@ -7,7 +7,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class PlanServiceCourseTest {
-    // TODO
     CourseDaoTest courseDao;
     PlanDaoTest planDao;
     PlanService planService;

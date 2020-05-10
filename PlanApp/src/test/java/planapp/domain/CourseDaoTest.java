@@ -5,11 +5,11 @@ import java.util.List;
 import planapp.dao.CourseDao;
 
 public class CourseDaoTest implements CourseDao {
-    // TODO
     List<Course> courses = new ArrayList<>();
+    Course latest = new Course("TKTTEST001", "Test Course");
     
     public CourseDaoTest() {
-        courses.add(new Course("TKTTEST001", "Test Course"));
+        courses.add(latest);
     }
 
     @Override
@@ -30,11 +30,37 @@ public class CourseDaoTest implements CourseDao {
 
     @Override
     public boolean addCourse(String line) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String[] info = line.split(";");
+        String code = info[0];
+        String name = info[1];
+        latest = new Course(code, name);
+        return courses.add(latest);  
     }
 
     @Override
     public void addPrerequisites(String line) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String[] preInfo = line.split(";");
+        String preCode = preInfo[0];
+        String preName = preInfo[1];
+        latest.addPrerequisite(new Course(preCode, preName));            
+    }
+
+    @Override
+    public Course create(Course course) throws Exception {
+        courses.add(course);
+        return course;
+    }
+
+    @Override
+    public void deleteCourse(Course course) throws Exception {
+        if (courses.contains(course)) {
+            courses.remove(course);
+        }
+    }
+
+    @Override
+    public void resetCourses() throws Exception {
+        courses.clear();
+        courses.add(new Course("TKTTEST001", "Test Course"));
     }
 }

@@ -45,6 +45,15 @@ public class Course {
     }
     
     /**
+     * Sets the course's prerequisites via complete list
+     * 
+     * @param prereq 
+     */
+    public void setPrequisites(List<Course> prereq) {
+        this.prerequisites = prereq;
+    }
+    
+    /**
      * Adds a prerequisite to object's corresponding list
      * 
      * @param course - new course

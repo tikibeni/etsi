@@ -155,4 +155,66 @@ public class PlanService {
         
         return false;
     }    
+    
+    /**
+     * Makes sure every instance of given course is removed from system
+     * 
+     * @param course - course to be deleted
+     * @return true if deleted successfully, false otherwise
+     */
+    public boolean sysDeleteCourse(Course course) {
+        // Deletion from existing plans
+        try {
+            planDao.deleteCourse(course);
+        } catch (Exception e) {
+            return false;
+        }
+        
+        // Deletion from existing courses' prerequisites
+        for (Course c : courseDao.getCourses()) {
+            if (c.getPrerequisites().contains(course)) {
+                c.getPrerequisites().remove(course);
+            }
+        }
+        
+        // Deletion from courses
+        try {
+            courseDao.deleteCourse(course);
+        } catch (Exception e) {
+            return false;
+        }
+        
+        return true;
+    }
+    
+    /**
+     * Creates a new course inside the system 
+     * 
+     * @param course - new course
+     * @param prerequisites - new course's given prerequisites
+     * @return true if created successfully, false otherwise
+     */
+    public boolean sysCreateCourse(Course course, List<Course> prerequisites) {
+        course.setPrequisites(prerequisites);
+        try {
+            courseDao.create(course);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }        
+    }
+    
+    /**
+     * Will format courses.txt back to initial state
+     * 
+     * @return true if file deleted successfully, false otherwise
+     */
+    public boolean sysCourseReset() {
+        try {
+            courseDao.resetCourses();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

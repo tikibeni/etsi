@@ -4,11 +4,14 @@ import java.util.List;
 import planapp.domain.Course;
 
 /**
- * Dao-interface for the class: Course
+ * DAO-interface for the class: Course
  */
 public interface CourseDao {
-    List<Course> getCourses();
+    Course create(Course course) throws Exception;
     Course findCourse(String courseCode);
+    List<Course> getCourses();
     boolean addCourse(String line);
     void addPrerequisites(String line);
+    void deleteCourse(Course course) throws Exception;
+    void resetCourses() throws Exception;
 }

@@ -1,10 +1,9 @@
 # Ohjelmistotekniikka, kevät 2020
 Tällä kurssilla toteutan kevytmuotoisen seurantaohjelman opintojen suunnittelua varten käyttäen Javaa.
 
+## ETSI (Esitietojen Tarkistus ja Seuranta Instrumentti)
 
-## Opintojen suunnittelutyökalu
-
-Sovelluksen ideana on auttaa käyttäjää opintojen suunnittelussa.
+Sovelluksen ideana on auttaa käyttäjää opintojen suunnittelussa kurssien esitietovaatimuksiin pohjautuen.
 
 Toimintamalli perustuu siihen, että käyttäjä voi suunnitelmassaan valita itselleen ainekohtaisesti jo suoritetut kurssit, jonka myötä ohjelma ehdottaa esitietovaatimuksiin pohjautuen seuraavaksi valittavia kursseja.
 

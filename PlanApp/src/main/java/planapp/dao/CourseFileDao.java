@@ -54,6 +54,27 @@ public class CourseFileDao implements CourseDao {
         }
     }
     
+    // Save made changes to file
+    private void save() throws Exception {
+        try (FileWriter writer = new FileWriter(new File(courseFile))) {
+            for (Course c : courses) {
+                // Basic info
+                writer.write(c.getCourseCode() + ";" + c.getCourseName() + "\n");
+                
+                // Prerequisites
+                writer.write("PREREQUISITES:");
+                writer.write("\n");
+                if (!c.getPrerequisites().isEmpty()) {
+                    for (Course pre : c.getPrerequisites()) {
+                        writer.write(pre.getCourseCode() + ";" + pre.getCourseName() + "\n");
+                    }
+                }
+                
+                writer.write("\n");
+            }
+        }
+    }
+    
     /**
      * During initialization reads lines containing the basic info of courses and delivers for application usage.
      * @param line - Scanner's current line
@@ -117,5 +138,51 @@ public class CourseFileDao implements CourseDao {
         }
         
         return null;
+    }
+    
+    /**
+     * Deletes every instance of given course from the system (courses.txt)
+     * 
+     * @param course
+     * @throws Exception 
+     */
+    @Override
+    public void deleteCourse(Course course) throws Exception {        
+        if (courses.contains(course)) {
+            courses.remove(course);
+        }
+        
+        for (Course c : courses) {
+            if (c.getPrerequisites().contains(course)) {
+                c.getPrerequisites().remove(course);
+            }
+        }
+        
+        save();        
+    }
+
+    /**
+     * Creates a new course into courses.txt if it doesn't exist yet
+     * 
+     * @param course
+     * @return created course
+     * @throws Exception 
+     */
+    @Override
+    public Course create(Course course) throws Exception {
+        courses.add(course);
+        save();
+        
+        return course;
+    }
+    
+    /**
+     * Formats the courses inside the system through file deletion and initializing
+     * 
+     * @throws Exception 
+     */
+    @Override
+    public void resetCourses() throws Exception {
+        new File(courseFile).delete();
     }
 }

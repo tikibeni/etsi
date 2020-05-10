@@ -1,10 +1,11 @@
 package planapp.dao;
 
 import java.util.List;
+import planapp.domain.Course;
 import planapp.domain.Plan;
 
 /**
- * Dao-interface for the class: Plan
+ * DAO-interface for the class: Plan
  */
 public interface PlanDao {
     Plan create(Plan plan) throws Exception;
@@ -13,5 +14,6 @@ public interface PlanDao {
     void save() throws Exception;
     boolean deletePlan(String planName) throws Exception;
     boolean addPlan(String line);
-    void addCourses(String line);
+    void addCourses(String line);    
+    void deleteCourse(Course course) throws Exception;
 }

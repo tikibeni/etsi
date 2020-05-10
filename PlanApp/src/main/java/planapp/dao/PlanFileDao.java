@@ -171,4 +171,21 @@ public class PlanFileDao implements PlanDao {
         
         return false;
     }
+    
+    /**
+     * Deletes every instance of given course from plans.txt
+     * 
+     * @param course
+     * @throws Exception 
+     */
+    @Override
+    public void deleteCourse(Course course) throws Exception {
+        for (Plan p : plans) {
+            if (p.getCourses().contains(course)) {
+                p.getCourses().remove(course);
+            }
+        }
+        
+        save();
+    }
 }

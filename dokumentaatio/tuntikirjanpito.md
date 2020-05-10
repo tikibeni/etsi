@@ -40,4 +40,13 @@
 28.4.: Javadoc, UI:n hiomista, testausta, dokumentointia
 - 8,0h
 
-Yhteensä: 43,25h
+7.5.: UI:n hiomista ja optimisointia
+- 2,25h
+
+9.5.: Uusia toiminnallisuuksia, testejä, dokumentointia
+- 7,75h
+
+10.5.: Testejä, dokumentointia, kurssin loppurelease
+- 
+
+Yhteensä: 43,25h + 8.-10.5.

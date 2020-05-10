@@ -5,8 +5,8 @@ import java.util.List;
 import planapp.dao.PlanDao;
 
 public class PlanDaoTest implements PlanDao {
-    // TODO
     List<Plan> plans = new ArrayList<>();
+    Plan latest = new Plan("Place", "Holder");
     
     public PlanDaoTest(){
         plans.add(new Plan("Test", "Test Test"));
@@ -51,11 +51,26 @@ public class PlanDaoTest implements PlanDao {
 
     @Override
     public boolean addPlan(String line) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String[] parts = line.split(";");
+        Plan p = new Plan(parts[0], parts[1]);
+        latest = p;
+        return plans.add(p);
     }
 
     @Override
     public void addCourses(String line) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String[] courseInfo = line.split(";");
+        String courseCode = courseInfo[0];
+        String courseName = courseInfo[1];
+        latest.addCourse(new Course(courseCode, courseName));   
+    }
+
+    @Override
+    public void deleteCourse(Course course) throws Exception {
+        for (Plan p : plans) {
+            if (p.getCourses().contains(course)) {
+                p.getCourses().remove(course);
+            }
+        }
     }
 }

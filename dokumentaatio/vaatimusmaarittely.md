@@ -10,12 +10,15 @@ Sovellukseen voi rekisteröityä, ja se säilyttää kunkin käyttäjän syött�
 
 - Käyttäjäroolina toimii peruskäyttäjä. 
   * Peruskäyttäjä voi rakentaa ja tarkastella kurssisuunnitelmaa.
+  * Voi kirjautua ulos ja sisään sekä poistaa suunnitelmansa
 
 ## Näkymät
 
 - Kirjautumissivu
 - Rekisteröintisivu
 - Suunnittelusivu
+
+- TEHTY: Näkymät pysyvät keskellä näyttöä
 
 ## Toiminnallisuudet
 
@@ -36,18 +39,14 @@ Sovellukseen voi rekisteröityä, ja se säilyttää kunkin käyttäjän syött�
 - TEHTY: Suunnittelusivulla on mahdollista poimia jo suoritettuja kursseja, jonka myötä ohjelma tarjoaa, mitä kursseja voi suorittaa seuraavaksi.
 - TEHTY: Suunnittelua varten oma linkki ainetta varten.
 - TEHTY: Sivulle oma yläpalkki, jonka Menussa logout, delete plan, edit jne.
-- TODO:
-  * Vahvistusilmoitus suunnitelman poiston yhteydessä
-  * Esitietokaaviosivun sisältö
-  * Yhdistä scrollpaneen
+- TEHTY: Vahvistusikkuna poiston yhteydessä
+- TEHTY: Päänäkymä toimii tarpeiden mukaan scrollauksella
+- TEHTY: Kurssien muokkaussivun alku
+  * TEHTY: Uusien kurssien ja niiden esitietojen luonti
+  * TEHTY: Kurssien poistomahdollisuus
+* TEHTY: Järjestelmän kurssien resetointitoiminto
 
 ## Kehitysideoita
-
-- TODO:
-  * Sovelluslogiikan erottelun + graafisen käyttöliittymän hiominen
-  * DONE: Näkymät pysyvät keskellä näyttöä
-  * Extra: rekisteröinnin validointi eventlistenerillä
   
-- Sovellukseen voi syöttää suoritettujen kurssien arvosanat, jonka myötä laskee keskiarvot (koko, pääaine, sivuaine(et))
-- Useamman aineen (esim. matematiikka) esitiedot ja suunnittelumahdollisuus.
-- Sovellukseen voi itse syöttää kurssikokonaisuuksia, kursseja ja niihin liittyviä tietoja.
+- Olemassaolevien kurssien tietojen (koodi, nimi, esitiedot) muokkaus.
+- Useamman aineen (esim. matematiikka) luonti ja esitietojen tarkastelu.
