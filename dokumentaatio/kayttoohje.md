@@ -68,9 +68,13 @@ Rekisteröinnin voi sinetöidä painamalla `Register`, jonka myötä ohjelma pal
 
 ![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje/mainview.png "Main view")
 
-Suunnitelmanäkymässä voi kirjautua ulos painikkeesta `Logout` ja poistaa suunnitelma painikkeesta `Delete plan`
+Suunnitelmanäkymässä voi kirjautua ulos painikkeesta `Logout`, poistaa suunnitelma painikkeesta `Delete plan` ja resetoida järjestelmän kurssit `Reset courses`-painikkeesta.
 
-Kummastakin painikkeesta näkymä vaihtuu takaisin kirjautumisnäkymään.
+Kaikista painikkeista näkymä vaihtuu takaisin kirjautumisnäkymään.
+
+Suunnitelman poistaminen vaatii vahvistuksen vahinkopainallusten takia, joten `Delete plan`-painiketta painettaessa sivulle tulee ponnahdusikkuna:
+
+![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje/planDeletion.png "Confirmation")
 
 Suunnitelmanäkymän vasemmassa reunassa on eräänlainen menu toimintojen välille. Painikkeesta `TKT-courses` pääsee TKT-kurssien suunnitelmaan.
 
@@ -80,4 +84,24 @@ Suunnitelmanäkymän vasemmassa reunassa on eräänlainen menu toimintojen väli
 
 ![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje/suggestions.png "Suggestions from selections")
 
-- Esitietojen kaaviosivulle pääsee painamalla `TKT-Prerequisites` -painiketta. Sivulla näkyy TKT-kurssien esitiedot taulukkona.
+- Kurssien muokkaussivulle pääsee painamalla `Modify TKT-Courses`. Sivulla voi luoda uusia kursseja esitietoineen ja poistaa kursseja.
+
+![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje/modify.png "Modify")
+
+- Kursseja voi poistaa valitsemalla poistettavat kurssit ja painamalla `Delete`-painiketta. Tämä poistaa kurssin kaikkalta järjestelmästä.
+
+![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje/deletingCourse.png "Course deleting")
+
+- Esim. JTKT-kurssi poistui nyt nykyisestä suunnitelmasta eikä se voi ilmestyä enää missään.
+
+![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje/deletingCourse1.png "Effect of deletion")
+
+- Kursseja voi luoda painamalla nappia `Create new`. Kurssin luomiseen tarvitaan kurssikoodi (pituus 5-13), nimi (pituus 3-50) sekä vapaavalintaiset esitietokurssit.
+
+![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje/newCourse.png "New course")
+
+![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje/newCourse1.png "Another course with prerequisites")
+
+- Tämän jälkeen kurssit näkyvät suunnitelmanäkymässä:
+
+![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje/newCourse2.png "Planning after new courses")
