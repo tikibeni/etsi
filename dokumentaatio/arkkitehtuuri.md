@@ -121,3 +121,21 @@ Kurssiehdotusten toimintaperiaate perustuu aiemmin esiteltyihin kurssivalintojen
 
 Tämän pohjalta UI alkaa palvelun kanssa tarkistamaan, mitä kursseja käyttäjälle voidaan ehdottaa. UI hakee kurssien esitietovaatimukset ja vertailee niitä aktiivisesti nykyisen suunnitelman valittuihin kursseihin. Mikäli kaikki esitiedoiksi merkityt kurssit on suoritettu, kurssia voidaan ehdottaa. Tämän myötä UI hakee kultakin sopivalta kurssilta tiedot ja näyttää ne käyttäjälle listana.
 
+### Kurssiresetointi
+
+Sovelluksessa on toiminnallisuus kurssien resetoinnille, koska käyttäjä pystyy poistamaan ja luomaan kursseja mielivaltaisesti. Resetoinnin yhteydessä käyttäjä heitetään kirjautumisnäkymään, annetaan resetoinnin tilaviesti ja suoritetaan resetointi poistamalla `courses.txt` ja pyytämällä sovellusta suorittamaan planServicen uudelleenmäärityksen.
+
+Näin käyttäjän komennosta UI vaihtaa näkymänsä login-screeniin, pyytää palvelua resetoimaan kurssit, jonka myötä palvelu käskee courseDAO:ta resetoimaan. CourseFileDao poistaa nykyisen courses.txt:n, jonka myötä UI kutsuu init()-metodiaan luomaan uuden planServicen, jonka myötä luodaan uusi courses.txt config.filen avulla.
+
+### Kurssin poisto järjestelmästä
+
+Sovelluksessa on mahdollista poistaa kursseja mielivaltaisesti. Poiston yhteydessä palvelu pitää huolen planDaolla ja courseDaolla, että kaikki annetut Course-instanssit poistetaan järjestelmästä kokonaan. Tämä koskee poistamista suunnitelmien valituista kursseista, järjestelmään luoduista kursseista sekä kurssien esitiedoista. Poistojen yhteydessä DAO-luokat kirjoittavat muutokset tiedostoihin.
+
+### Kurssin luonti järjestelmään
+
+Sovelluksessa voi luoda omia kursseja ja valita niille esitietovaatimuksia. Käyttäjän syötettyä kurssitiedot UI ja painettuaan luontipainiketta UI tarkistaa onko tiedot sopivia ja pyytää palvelua ja sitä kautta courseDaota luomaan uuden kurssin järjestelmätiedostoon. Tämän jälkeen kurssi näkyy muiden kurssien tapaan.
+
+
+## Sovellukseen jääneet heikkoudet
+
+UI-luokan koodia voisi optimoida ja järjestellä huomattavasti. Lisäksi epäloogista on, ettei sovelluksessa vielä pysty muokkaamaan nykyisiä suunnitelmia nimitiedoilta tai olemassaolevia kursseja nimi- ja esitiedoilta. Nämä tosin ovat varsin helposti toteutettavissa.
