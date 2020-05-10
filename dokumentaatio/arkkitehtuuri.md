@@ -125,7 +125,7 @@ Tämän pohjalta UI alkaa palvelun kanssa tarkistamaan, mitä kursseja käyttäj
 
 Sovelluksessa on toiminnallisuus kurssien resetoinnille, koska käyttäjä pystyy poistamaan ja luomaan kursseja mielivaltaisesti. Resetoinnin yhteydessä käyttäjä heitetään kirjautumisnäkymään, annetaan resetoinnin tilaviesti ja suoritetaan resetointi poistamalla `courses.txt` ja pyytämällä sovellusta suorittamaan planServicen uudelleenmäärityksen.
 
-Näin käyttäjän komennosta UI vaihtaa näkymänsä login-screeniin, pyytää palvelua resetoimaan kurssit, jonka myötä palvelu käskee courseDAO:ta resetoimaan. CourseFileDao poistaa nykyisen courses.txt:n, jonka myötä UI kutsuu init()-metodiaan luomaan uuden planServicen, jonka myötä luodaan uusi courses.txt config.filen avulla.
+Näin käyttäjän komennosta UI vaihtaa näkymänsä login-screeniin, pyytää palvelua resetoimaan kurssit, jonka myötä palvelu käskee courseDAO:ta resetoimaan. _CourseFileDao_ poistaa nykyisen `courses.txt`:n, jonka myötä UI kutsuu init()-metodiaan luomaan uuden planServicen, jonka myötä luodaan uusi `courses.txt` `config.file`:n avulla.
 
 ### Kurssin poisto järjestelmästä
 
@@ -138,4 +138,6 @@ Sovelluksessa voi luoda omia kursseja ja valita niille esitietovaatimuksia. Käy
 
 ## Sovellukseen jääneet heikkoudet
 
-UI-luokan koodia voisi optimoida ja järjestellä huomattavasti. Lisäksi epäloogista on, ettei sovelluksessa vielä pysty muokkaamaan nykyisiä suunnitelmia nimitiedoilta tai olemassaolevia kursseja nimi- ja esitiedoilta. Nämä tosin ovat varsin helposti toteutettavissa.
+UI-luokan koodia voisi optimoida ja järjestellä huomattavasti. 
+
+Lisäksi epäloogista on, ettei sovelluksessa vielä pysty muokkaamaan nykyisiä suunnitelmia nimitiedoilta tai olemassaolevia kursseja nimi- ja esitiedoilta. Nämä tosin ovat varsin helposti toteutettavissa jatkossa.
