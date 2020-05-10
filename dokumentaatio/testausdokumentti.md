@@ -1,5 +1,7 @@
 # Testausdokumentti
 
+Ohjelmaa on testattu manuaalisesti luoduilla JUNIT-testiluokilla.
+
 ## Domain-pakkaus
 
 Domain-paketin testaus koostuu kuudesta eri testiluokasta.
@@ -18,3 +20,16 @@ DAO-paketin testaus koostuu kahdesta eri testiluokasta, jotka simuloivat tiedost
 CourseFileDaoTest.java simuloi courses.txt:n tiedostonhallintatoimintoja. Luokka luo itselleen väliaikaiskansion ja tiedoston sen sisälle, johon se testaa erilaisia CoursesDao.java-luokan toimintoja. Näin luokka testaa samalla myös CourseDaon toimintoja. Luokka käyttää tiedoston alustukseen ulkoista kirjastoa org.apache.commons.io.FileUtils.
 
 PlanFileDaoTest.java simuloi plans.txt:n tiedostonhallintatoimintoja. Luokka luo itselleen väliaikaiskansion ja tiedoston sen sisälle, johon se testaa PlanDao-interfaceluokan toimintoja. Näin luokka testaa tiedostonhallintaa sekä PlanDao-toiminnallisuuksia.
+
+
+## Huomioita testauksesta
+
+Itse UI:n toiminnallisuudet ja niiden loogisuus on käyttäjätestattu eikä UI:lle ole testiluokkaa.
+
+Testien testauskattavuus on tyydyttävällä tasolla, tosin olisin halunnut käyttää niiden tekemiseen enemmän aikaa. Tällä hetkellä ne ovat varsin yksinkertaisella tasolla, mutta testaavat valtaosaa toiminnallisuuksista.
+
+PlanServicen uusia järjestelmän kursseja muokkaavia metodeja en ehtinyt tähän deadlineen mennessä testauttamaan JUNITilla vielä.
+
+Jacoco-raportti:
+
+![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/testaus/jacocoReport.png "Test report")

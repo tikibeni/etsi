@@ -8,6 +8,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Rule;
 import org.junit.rules.TemporaryFolder;
+import planapp.domain.Course;
 import planapp.domain.Plan;
 import planapp.domain.CourseDaoTest;
 
@@ -86,6 +87,13 @@ public class PlanFileDaoTest {
         planDao.create(newPlan);
         
         assertEquals(2, planDao.allPlans().size());
+    }
+    
+    @Test
+    public void courseDeletionFromPlan() throws Exception {
+        planDao.deleteCourse(new Course("TKT10001", "JTKT"));
+        
+        assertTrue(planDao.findPlan("freshplan").getCourses().size() == 1);
     }
     
     @After

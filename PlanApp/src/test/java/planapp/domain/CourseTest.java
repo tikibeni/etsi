@@ -1,5 +1,6 @@
 package planapp.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -50,4 +51,20 @@ public class CourseTest {
         Course c = new Course("TKTTEST", "Course Testing");
         assertEquals("Course Testing", c.getCourseName());
     }    
+    
+    @Test
+    public void presetPrerequisitesSetFunction() {
+        Course b0 = new Course("BASE", "COURSE");
+        
+        List<Course> newPrerequisites = new ArrayList<>();
+        Course c1 = new Course("TEST", "1");
+        Course c2 = new Course("TEST1", "2");
+        
+        newPrerequisites.add(c1);
+        newPrerequisites.add(c2);
+        
+        b0.setPrequisites(newPrerequisites);
+        
+        assertTrue(b0.getPrerequisites().size() == 2);
+    }
 }
