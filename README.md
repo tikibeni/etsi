@@ -20,6 +20,8 @@ Vaatimusmäärittely: [vaatimusmaarittely.md](https://github.com/tikibeni/ot-har
 
 Sovellusarkkitehtuuri: [arkkitehtuuri.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+Testausdokumentti: [testausdokumentti.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/testausdokumentti.md)
+
 Tuntikirjanpito: [tuntikirjanpito.md](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 ## Releaset
