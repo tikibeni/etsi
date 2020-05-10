@@ -20,7 +20,7 @@ Domainin PlanService käyttää PlanDao:ta ja CourseDao:ta.
 
 Sovellus tallentaa tietoa suunnitelmista ja kursseista DAO-rajapintojen (planDao, courseDao) toteuttavien luokkien (planFileDao, courseFileDao) avulla. Nämä DAO-luokat toteuttavat sovelluksen palvelun (planService).
 
-Tämän toimiakseen sovelluksessa on määritetty konfiguroinnit tiedostoon _config.file_, joka määrittää tiedostojen nimet (plans.txt, courses.txt) ja sisältää kaikkien kurssien ennaltamääritetyt tiedot.
+Tämän toimiakseen sovelluksessa on määritetty konfiguroinnit tiedostoon _config.file_, joka määrittää tiedostojen nimet (plans.txt, courses.txt) ja sisältää kaikkien kurssien ennaltamääritetyt ja sovelluksessa luodut tiedot.
 
 Näin jokaisen käynnistyksen yhteydessä sovellus kutsuu DAO-luokkien konstruktoreita, jotka joko luovat puuttuvat tiedostot, mahdollisesti kirjoittavat niihin (kuten courses.txt:n tapauksessa) jonka myötä palvelu saa käyttöönsä listoina kaikki tiedostoissa (tietokannassa) olevat tiedot.
 
@@ -60,9 +60,9 @@ Sisältötyypit tiedostoilla ovat:
     ...
 ```
 
-Näin courses.txt:n sisältö tulee suoraan config.file "coursesInfo" -osiosta. Tiedostojen lukeminen ja tietojen erottelu tapahtuu Scannerilla, joka käy rivi kerrallaan tietoja läpi. Oleellisina tunnisteina toimivat `PREREQUISITES:` ja `COURSES:` -osiot, jotka ilmoittavat ohjelmalle, että nyt käsitellään esitietoja tai kursseja, kun aiemmin ollaan käsitelty peruskursseja tai Plan-oliota.
+Näin courses.txt:n alkuperäinen sisältö tulee suoraan config.file "coursesInfo" -osiosta. Tiedostojen lukeminen ja tietojen erottelu tapahtuu Scannerilla, joka käy rivi kerrallaan tietoja läpi. Oleellisina tunnisteina toimivat `PREREQUISITES:` ja `COURSES:` -osiot, jotka ilmoittavat ohjelmalle, että nyt käsitellään esitietoja tai kursseja, kun aiemmin ollaan käsitelty peruskursseja tai Plan-oliota.
 
-## Sekvenssikaaviot sovelluksen perustoiminnallisuuksista
+## Kuvaukset sovelluksen perustoiminnallisuuksista
 
 ### Rekisteröinti
 
