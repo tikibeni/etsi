@@ -76,6 +76,8 @@ Suunnitelman poistaminen vaatii vahvistuksen vahinkopainallusten takia, joten `D
 
 ![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje/planDeletion.png "Confirmation")
 
+![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje/planDeletion1.png "After deleting plan")
+
 Suunnitelmanäkymän vasemmassa reunassa on eräänlainen menu toimintojen välille. Painikkeesta `TKT-courses` pääsee TKT-kurssien suunnitelmaan.
 
 ![alt-text](https://github.com/tikibeni/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje/freshplan.png "View before selections")
