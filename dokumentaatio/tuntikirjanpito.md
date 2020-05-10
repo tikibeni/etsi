@@ -47,6 +47,6 @@
 - 7,75h
 
 10.5.: Testejä, dokumentointia, kurssin loppurelease
-- 
+- 2,5h
 
-Yhteensä: 43,25h + 8.-10.5.
+Yhteensä: 55,75h
