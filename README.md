@@ -28,7 +28,7 @@ Tuntikirjanpito: [tuntikirjanpito.md](https://github.com/tikibeni/ot-harjoitusty
 
 Viimeisin [täältä](https://github.com/tikibeni/ot-harjoitustyo/releases)
 
-Kurssin _Ohjelmistotekniikka_ loppupalautus: [tästä](https://github.com/tikibeni/ot-harjoitustyo/tag/v1.2)
+Kurssin _Ohjelmistotekniikka_ loppupalautus: [tästä](https://github.com/tikibeni/ot-harjoitustyo/releases/tag/v1.2)
 
 ## Komentorivitoiminnot
 
